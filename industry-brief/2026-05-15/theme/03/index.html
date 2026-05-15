@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Industry Brief · 2026-05-15 · Cory Arnette · Cover Whale</title>
+  <link rel="stylesheet" href="/cw-reports/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233E1C53'/><text x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='%2353D6D2' font-family='-apple-system' font-weight='800' font-size='14'>CW</text></svg>">
+  <style>
+    /* cw-reports site shell — mirrors command-center base.html layout */
+
+    /* Force layout to grid with sidenav (command-center style.css defines this
+       but the existing class overrides depend on Flask state — we just ensure
+       it stays consistent here). */
+    .layout { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+
+    .sidenav {
+      background: var(--bg-elev);
+      color: rgba(255,255,255,0.92);
+      padding: 22px 14px 26px;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--line);
+    }
+    .sidenav .brand {
+      display: flex; gap: 12px; align-items: center;
+      padding: 0 6px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .sidenav .brand-logo {
+      width: 38px; height: 38px; border-radius: 9px;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.25), 0 2px 12px rgba(62, 28, 83, 0.45);
+    }
+    .sidenav .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
+    .sidenav .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-mono); }
+
+    .sidenav nav { display: flex; flex-direction: column; }
+    .nav-section-label {
+      font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600;
+      padding: 14px 10px 6px;
+    }
+    .nav-item {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1px;
+      transition: all 0.12s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active {
+      background: var(--purple-glow);
+      color: var(--purple);
+      border-color: rgba(180, 124, 219, 0.30);
+    }
+    .nav-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 16px; height: 16px; }
+
+    main.content {
+      padding: 28px 38px 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Credentials gate */
+    #cw-gate {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #cw-gate .spin {
+      width: 48px; height: 48px;
+      border: 4px solid var(--purple);
+      border-top-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: cwspin 0.9s linear infinite;
+    }
+    #cw-gate h2 { font-size: 18px; color: var(--text); margin: 0 0 6px; font-weight: 600; }
+    #cw-gate p { font-size: 13px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
+    @keyframes cwspin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidenav {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--line);
+      }
+      main.content { padding: 22px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cw-gate">
+  <div style="text-align:center;">
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing Growth Reports</p>
+  </div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></symbol>
+  <symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></symbol>
+</svg>
+
+<div class="layout">
+  <aside class="sidenav">
+    <div class="brand">
+      <a href="/cw-reports/morning/" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+        <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
+        <div>
+          <div class="brand-title">Growth Reports</div>
+          <div class="brand-sub">Thu May 14 2026</div>
+        </div>
+      </a>
+    </div>
+    <nav>
+      <div class="nav-section-label">Data</div>
+      <a href="/cw-reports/morning/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-chart"/></svg></span> Production vs Budget
+      </a>
+      <a href="/cw-reports/industry-brief/" class="nav-item active">
+        <span class="nav-icon"><svg><use href="#i-newspaper"/></svg></span> Industry Brief
+      </a>
+    </nav>
+  </aside>
+  <main class="content">
+    
+
+
+
+
+<header class="page-header">
+  <h1>Industry Brief</h1>
+  <div class="subtitle">
+    
+      2026-05-15 &middot; trucking + trucking-insurance daily digest
+      
+        &middot; <span class="muted">built 2026-05-14 21:59</span>
+      
+    
+  </div>
+</header>
+
+
+
+
+<div class="tabs">
+  <a href="/cw-reports/industry-brief/2026-05-15/"
+     class="tab ">Overview</a>
+  
+    <a href="/cw-reports/industry-brief/2026-05-15/theme/01/"
+       class="tab ">
+      Market Structure
+    </a>
+  
+    <a href="/cw-reports/industry-brief/2026-05-15/theme/02/"
+       class="tab ">
+      Freight Cycle
+    </a>
+  
+    <a href="/cw-reports/industry-brief/2026-05-15/theme/03/"
+       class="tab active">
+      Regulatory &amp; Cost Pressure
+    </a>
+  
+</div>
+
+
+
+
+
+
+
+  <section class="report-section">
+    <div style="margin-bottom: 12px;">
+      <div class="muted" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">
+        Theme 03 &middot; Regulatory &amp; Cost Pressure
+      </div>
+      <h2 style="font-size: 24px; font-weight: 800; margin: 4px 0 10px 0; color: var(--text);">
+        Carrier Economics Are Being Squeezed From Every Side
+      </h2>
+      <div>
+        <span class="rag rag-amber" style="margin-right:6px;">Submission: MED</span><span class="rag rag-red" style="margin-right:6px;">Pricing: HIGH</span><span class="rag rag-amber" style="margin-right:6px;">Distribution: MED</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="report-section">
+    <h2 class="report-h">Why It Matters</h2>
+    <div class="report-card" style="font-size: 14px; line-height: 1.65;">
+      Carriers are absorbing simultaneous cost pressure from five directions this week. The Fair Compensation for Truck Crash Victims Act was reintroduced — it would lift the federal financial responsibility minimum from $750K to $5M, a step smaller MGAs and regional carriers can&#39;t follow cleanly. ATA-championed CORCA cleared the House to address $18M/day in cargo theft losses. CVSA International Roadcheck wrapped today with ELD-cheat enforcement now outpacing the cheaters. New Jersey introduced new truck parking, GPS, and overweight rules. Maverick just raised flatbed driver pay $0.04/mi, signaling tight labor. Net effect for our prospects: rising compliance + insurance + labor + security costs all at once. The carriers who survive this are the ones with continuous underwriting and real safety data — the core of our pitch.
+    </div>
+  </section>
+
+  <section class="report-section">
+    <h2 class="report-h">CW Action</h2>
+    <div class="report-callout up" style="border-left-color: var(--turquoise);">
+      Re-frame the DriveSmart pitch for the next 90 days as a cost-control story, not just a safety story. The $5M minimum bill in particular is a strategic positive — if it advances, our admitted + E&amp;S structure becomes a hard moat.
+    </div>
+  </section>
+
+  <section class="report-section">
+    <h2 class="report-h">Sources &amp; Further Reading</h2>
+    <div class="report-table-wrap">
+      <table class="report-table">
+        <thead>
+          <tr><th>Headline</th><th style="width:200px;">Source</th></tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><a href="https://cdllife.com/2026/minimum-insurance-requirement-for-trucking-companies-would-skyrocket-from-750k-to-5-million-under-proposed-bill/" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">$5M minimum insurance bill: Fair Compensation for Truck Crash Victims Act reintroduced <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">CDL Life</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.trucking.org/news-insights/cargo-theft-bill-championed-ata-passes-house" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">ATA-championed cargo theft bill (CORCA) passes House <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">American Trucking Associations</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.overdriveonline.com/electronic-logging-devices/article/15825211/roadcheck-inspectors-behind-the-curve-on-new-breed-of-eld-cheats" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">Roadcheck: Inspectors &#39;behind the curve&#39; on new breed of ELD cheats <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Overdrive</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.ccjdigital.com/regulations/article/15825000/maverick-transportation-gives-otr-drivers-a-raise" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">Maverick Transportation raises flatbed OTR driver pay $0.04/mi, effective May 31 <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Commercial Carrier Journal</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://landline.media/new-jersey-lawmakers-target-truck-parking-chaos-and-heavy-loads/" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">New Jersey lawmakers target truck parking chaos, heavy loads, and GPS rules <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Land Line (OOIDA)</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.ttnews.com/articles/missouri-tort-reform" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">Missouri report finds lawsuits drive truck insurance premiums higher <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Transport Topics</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+
+
+
+  </main>
+</div>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1300);
+})();
+</script>
+
+</body>
+</html>
