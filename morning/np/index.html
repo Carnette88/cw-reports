@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>CW Morning Reports — Thu, May 14 2026</title>
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0A0A0D;
+    color: #F5F5F7;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(83, 214, 210, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(180, 124, 219, 0.05) 0%, transparent 50%),
+      #0A0A0D;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(17, 17, 22, 0.85);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid #24242C;
+  }
+  .topbar-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 14px 22px;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand-mark {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #53D6D2 0%, #2BAFAA 100%);
+    color: #0A0A0D;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 9px;
+    font-weight: 800; font-size: 13px; letter-spacing: -0.02em;
+    box-shadow: 0 0 0 1px rgba(83, 214, 210, 0.30), 0 4px 18px rgba(83, 214, 210, 0.18);
+  }
+  .brand-text { line-height: 1.15; }
+  .brand-title { font-weight: 600; font-size: 13px; color: #F5F5F7; letter-spacing: -0.01em; }
+  .brand-sub { font-size: 11px; color: #8A8A95; font-family: 'SF Mono', ui-monospace, Menlo, monospace; margin-top: 2px; }
+
+  .tabs { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+  .tab {
+    color: #8A8A95;
+    padding: 7px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .tab:hover {
+    color: #F5F5F7;
+    background: #1B1B22;
+  }
+  .tab.active {
+    color: #B47CDB;
+    background: rgba(180, 124, 219, 0.18);
+    border-color: rgba(180, 124, 219, 0.30);
+  }
+
+  /* Page label under top bar */
+  .page-head {
+    max-width: 1100px; margin: 0 auto;
+    padding: 28px 22px 8px;
+  }
+  .page-eyebrow {
+    font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
+    color: #53D6D2; font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .page-title {
+    font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
+    color: #F5F5F7; margin: 0;
+  }
+  .page-meta { color: #8A8A95; font-size: 13px; margin-top: 6px; }
+
+  /* Card frame for the embedded report */
+  .report-frame {
+    max-width: 1100px; margin: 18px auto 60px;
+    padding: 0 22px;
+  }
+  .report-card {
+    background: #15151B;
+    border: 1px solid #24242C;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.50), 0 24px 48px rgba(0,0,0,0.30);
+  }
+  .report-card-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid #24242C;
+    background: linear-gradient(180deg, #1B1B22 0%, #15151B 100%);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: #8A8A95;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  }
+  .report-card-header .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #53D6D2; display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 0 8px #53D6D2;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+  .report-card-body { padding: 0; }
+  .report-card-body > table { margin: 0 auto; }
+
+  /* Footer */
+  .site-footer {
+    max-width: 1100px; margin: 0 auto;
+    padding: 24px 22px 40px;
+    color: #5C5C68; font-size: 11px;
+    text-align: center;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  }
+  .site-footer a { color: #8A8A95; text-decoration: none; }
+  .site-footer a:hover { color: #53D6D2; }
+
+  /* Credentials gate splash */
+  #cw-gate {
+    position: fixed; inset: 0; z-index: 99999;
+    background: #0A0A0D;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #cw-gate .spin {
+    width: 48px; height: 48px;
+    border: 4px solid #B47CDB;
+    border-top-color: transparent;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    animation: cwspin 0.9s linear infinite;
+  }
+  #cw-gate h2 {
+    font-size: 18px; color: #F5F5F7; margin: 0 0 6px; font-weight: 600;
+  }
+  #cw-gate p {
+    font-size: 13px; color: #8A8A95; margin: 0;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  }
+  @keyframes cwspin { to { transform: rotate(360deg); } }
+
+  /* The embedded report card has its own purple page bg from email styles —
+     neutralize it so it sits cleanly on our dark canvas. */
+  .report-card-body table[role="presentation"][style*="background-color"] {
+    background-color: transparent !important;
+  }
+
+  @media (max-width: 640px) {
+    .topbar-inner { padding: 12px 14px; }
+    .page-head, .report-frame, .site-footer { padding-left: 14px; padding-right: 14px; }
+    .tabs { width: 100%; margin-left: 0; margin-top: 4px; }
+    .page-title { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cw-gate">
+  <div style="text-align:center;">
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing National Partners Dashboard</p>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">CW</div>
+      <div class="brand-text">
+        <div class="brand-title">Growth Reports</div>
+        <div class="brand-sub">cory.arnette@coverwhale.com</div>
+      </div>
+    </div>
+    <nav class="tabs">
+      <a class="tab" href="../">Company</a>
+<a class="tab" href="../retail/">Retail</a>
+<a class="tab" href="../networks/">Networks</a>
+<a class="tab active" href="./">National Partners</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="page-eyebrow">Morning Dashboard</div>
+  <h1 class="page-title">National Partners</h1>
+  <div class="page-meta">Thu, May 14 2026 · auto-refreshed daily at 6:00 AM ET</div>
+</section>
+
+<section class="report-frame">
+  <div class="report-card">
+    <div class="report-card-header">
+      <span><span class="dot"></span>Live · last build May 14, 2026 · 10:50 PM ET</span>
+      <span>NATIONAL PARTNERS</span>
+    </div>
+    <div class="report-card-body">
+      
+
+<!-- Wrapper -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0edf3;">
+<tr><td align="center" style="padding:16px 8px;">
+
+<!-- Container -->
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(65,34,90,0.10);">
+
+<tr><td style="background: linear-gradient(135deg, #41225a 0%, #5a3478 50%, #41225a 100%); padding:28px 24px 20px 24px;">
+  <!--[if mso]><v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;"><v:fill type="gradient" color="#41225a" color2="#5a3478"/><v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <table role="presentation" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="background-color:#8A5BA2; width:36px; height:36px; border-radius:8px; text-align:center; vertical-align:middle; font-size:16px; font-weight:800; color:#ffffff; letter-spacing:-0.5px;">CW</td>
+        <td style="padding-left:10px; color:#ffffff; font-size:20px; font-weight:700; letter-spacing:-0.3px;">Cover Whale</td>
+      </tr>
+      </table>
+    </td>
+    <td align="right" style="vertical-align:top;">
+      <span style="display:inline-block; background-color:rgba(255,255,255,0.15); color:#d4c0e8; font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; letter-spacing:0.5px; text-transform:uppercase;">National Partners</span>
+    </td>
+  </tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+  <tr><td style="color:#c9b3de; font-size:14px;">
+    Thursday, May 14, 2026
+  </td></tr>
+  <tr><td style="color:#ffffff; font-size:17px; font-weight:600; padding-top:4px;">
+    Day 9 of 21 &mdash; 12 business days remaining
+  </td></tr>
+  <tr><td style="color:#d4c0e8; font-size:13px; padding-top:4px;">Vertical: National Partners (budget share: 5% of company)</td></tr>
+  </table>
+  <!--[if mso]></v:textbox></v:rect><![endif]-->
+</td></tr>
+<tr><td style="background-color:#fde8e8; border-left:4px solid #c0392b; padding:14px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="font-size:15px; color:#7f1d1d; font-weight:600;">
+      National Partners GWP at 23% pace to budget &mdash; $977K gap with 12 days left
+    </td>
+  </tr>
+  </table>
+</td></tr>
+<tr><td style="padding:20px 24px 8px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr><td style="font-size:12px; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; font-weight:700;">Scorecard</td></tr>
+  </table>
+</td></tr><tr><td style="padding:4px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fdf2f2; border:1px solid #f5c2c2; border-left:4px solid #c0392b; border-radius:8px;">
+  <tr><td style="padding:16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="font-size:12px; color:#6b7280; font-weight:600; text-transform:uppercase; letter-spacing:0.4px;">Net GWP (after Cancels)</td>
+      <td align="right">
+        <span style="display:inline-block; background-color:#c0392b; color:#ffffff; font-size:12px; font-weight:700; padding:3px 12px; border-radius:12px; letter-spacing:0.3px;">23%</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-top:8px;">
+        <span style="font-size:30px; font-weight:700; color:#41225a;">$109K</span>
+        <span style="font-size:14px; color:#6b7280; padding-left:6px;">of $1.1M budget</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-top:10px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-size:13px; color:#6b7280;">Pace: <strong style="color:#41225a;">23%</strong></td>
+          <td align="center" style="font-size:13px; color:#6b7280;">MoM: <strong style="color:#c0392b;">-26.9%</strong></td>
+          <td align="right" style="font-size:13px; color:#6b7280;">YoY: <strong style="color:#14B8A6;">+235.3%</strong></td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+  </table>
+</td></tr><tr><td style="padding:4px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fdf2f2; border:1px solid #f5c2c2; border-left:4px solid #c0392b; border-radius:8px;">
+  <tr><td style="padding:16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="font-size:12px; color:#6b7280; font-weight:600; text-transform:uppercase; letter-spacing:0.4px;">Gross Production (before Cancels)</td>
+      <td align="right">
+        <span style="display:inline-block; background-color:#c0392b; color:#ffffff; font-size:12px; font-weight:700; padding:3px 12px; border-radius:12px; letter-spacing:0.3px;">14%</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-top:8px;">
+        <span style="font-size:30px; font-weight:700; color:#41225a;">$135K</span>
+        <span style="font-size:14px; color:#6b7280; padding-left:6px;">of $2.2M budget</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-top:10px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-size:13px; color:#6b7280;">Pace: <strong style="color:#41225a;">14%</strong></td>
+          <td align="center" style="font-size:13px; color:#6b7280;">MoM: <strong style="color:#14B8A6;">+29.9%</strong></td>
+          <td align="right" style="font-size:13px; color:#6b7280;">YoY: <strong style="color:#14B8A6;">+30.3%</strong></td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+  </table>
+</td></tr><tr><td style="padding:4px 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#e6f9f5; border:1px solid #b2ece0; border-left:4px solid #14B8A6; border-radius:8px;">
+  <tr><td style="padding:16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="font-size:12px; color:#6b7280; font-weight:600; text-transform:uppercase; letter-spacing:0.4px;">NB Submissions</td>
+      <td align="right">
+        <span style="display:inline-block; background-color:#14B8A6; color:#ffffff; font-size:12px; font-weight:700; padding:3px 12px; border-radius:12px; letter-spacing:0.3px;">150%</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-top:8px;">
+        <span style="font-size:30px; font-weight:700; color:#41225a;">126</span>
+        <span style="font-size:14px; color:#6b7280; padding-left:6px;">of 196 target</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-top:10px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-size:13px; color:#6b7280;">Pace: <strong style="color:#41225a;">150%</strong></td>
+          <td align="center" style="font-size:13px; color:#6b7280;">MoM: <strong style="color:#c0392b;">-10.1%</strong></td>
+          <td align="right" style="font-size:13px; color:#6b7280;">YoY: <strong style="color:#14B8A6;">+193.0%</strong></td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+  </table>
+</td></tr>
+<tr><td style="padding:4px 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f0f8; border:1px solid #e0d4ea; border-radius:8px;">
+  <tr><td style="padding:12px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="font-size:12px; color:#8A5BA2; font-weight:700; text-transform:uppercase; letter-spacing:0.4px;">Hit Ratio</td>
+      <td align="center" style="font-size:22px; font-weight:700; color:#41225a;">0.0%</td>
+      <td align="right" style="font-size:13px; color:#6b7280;">Bound: <strong style="color:#41225a;">0</strong> &nbsp;|&nbsp; Quoted: <strong style="color:#41225a;">37</strong></td>
+    </tr>
+    </table>
+  </td></tr>
+  </table>
+</td></tr>
+<tr><td style="padding:0 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#41225a; border-radius:10px;">
+  <tr><td style="padding:18px 20px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    <tr><td style="font-size:11px; color:#c9b3de; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding-bottom:10px;">
+      Daily Production Target
+    </td></tr>
+    <tr><td>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="width:50%; padding-right:8px; vertical-align:top;">
+          <div style="font-size:11px; color:#c9b3de; text-transform:uppercase;">Gap to Budget</div>
+          <div style="font-size:26px; font-weight:700; color:#e8a317; padding-top:2px;">$977K</div>
+        </td>
+        <td style="width:50%; padding-left:12px; vertical-align:top; border-left:1px solid #5a3478;">
+          <div style="font-size:11px; color:#c9b3de; text-transform:uppercase; padding-left:4px;">Gross Needed / Day</div>
+          <div style="font-size:26px; font-weight:700; color:#14B8A6; padding-top:2px; padding-left:4px;">$82K</div>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    <tr><td style="padding-top:12px; border-top:1px solid #5a3478;">
+      <div style="font-size:13px; color:#d4c0e8; padding-top:8px;">
+        Current: <strong style="color:#ffffff;">$15K/day</strong> &nbsp;&mdash;&nbsp; Required: <strong style="color:#14B8A6;">$82K/day</strong> &nbsp;(+$67K gap)
+      </div>
+    </td></tr>
+    </table>
+  </td></tr>
+  </table>
+</td></tr>
+<tr><td style="padding:0 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr><td style="font-size:12px; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; font-weight:700; padding-bottom:8px;">Top States by Gross Premium</td></tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e0d4ea; border-radius:8px; overflow:hidden;">
+  <tr style="background-color:#f5f0f8;">
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;">State</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">Gross Ex-Cx</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">% Total</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">Net GWP</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">NH</td>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$94K</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">69.9%</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">$94K</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">TX</td>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$36K</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">26.6%</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">$36K</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">CA</td>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$17K</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">12.9%</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">$17K</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">FL</td>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$455</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">0.3%</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; border-bottom:1px solid #f3f0f6;" align="right">$455</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; font-weight:600; ">MN</td>
+    <td style="padding:9px 12px; font-size:14px; color:#41225a; " align="right">$267</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; " align="right">0.2%</td>
+    <td style="padding:9px 12px; font-size:14px; color:#6b7280; " align="right">$267</td>
+  </tr>
+  </table>
+</td></tr>
+<tr><td style="padding:0 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr><td style="font-size:12px; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; font-weight:700; padding-bottom:8px;">Top Agencies by Bound Premium</td></tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e0d4ea; border-radius:8px; overflow:hidden;">
+  <tr style="background-color:#f5f0f8;">
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;">Agency</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">GWP</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">YoY</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">HUB International - Colchester</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$81K</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">New</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">USI - Fort Lauderdale, FL - So</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$36K</td>
+    <td style="padding:9px 12px; font-size:13px; color:#14B8A6; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">+157.9%</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">HUB International - Sandy, UT </td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$18K</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">New</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">Acrisure LLC, DBA South Atlant</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">$455</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">-97.7%</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; ">Robertson Ryan &amp; Associates In</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; " align="right">$13</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; " align="right">-99.9%</td>
+  </tr>
+  </table>
+</td></tr>
+<tr><td style="padding:0 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr><td style="font-size:12px; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; font-weight:700; padding-bottom:8px;">Top Agencies by Submission Volume</td></tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e0d4ea; border-radius:8px; overflow:hidden;">
+  <tr style="background-color:#f5f0f8;">
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;">Agency</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">NB Subs</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">Unique DOTs</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">Hit Ratio</td>
+    <td style="padding:10px 12px; font-size:12px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;" align="right">YoY</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">Cai Insurance Services, LLC</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">68</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">5</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">New</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">Acrisure LLC DBA RRL Insurance Agen</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">15</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">15</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#14B8A6; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">+200.0%</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">Acrisure LLC, DBA South Atlantic In</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">9</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">9</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#14B8A6; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">+0.0%</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">Robertson Ryan &amp; Associates Inc</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">6</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">6</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#14B8A6; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">+0.0%</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">HUB International - Colchester VT -</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">4</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">3</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#14B8A6; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">+300.0%</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">HUB International - Salt Lake City,</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">4</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">4</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">New</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">Alliant Insurance Services, Inc.</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">4</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">3</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">New</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">HUB International - Spring, TX - Ce</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">3</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">3</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#14B8A6; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">+200.0%</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">USI - Birmingham, AL</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">2</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">1</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; border-bottom:1px solid #f3f0f6;" align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; border-bottom:1px solid #f3f0f6;" align="right">New</td>
+  </tr><tr>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; font-weight:600; ">Acrisure, LLC DBA MF Block Insuranc</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; " align="right">2</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; " align="right">2</td>
+    <td style="padding:9px 12px; font-size:13px; color:#41225a; " align="right">0.0%</td>
+    <td style="padding:9px 12px; font-size:13px; color:#c0392b; font-weight:600; " align="right">New</td>
+  </tr>
+  </table>
+</td></tr>
+<tr><td style="padding:0 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr><td style="font-size:12px; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; font-weight:700; padding-bottom:8px;">Conversion Funnel</td></tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="width:25%; text-align:center; padding:3px;">
+      <div style="background-color:#f5f0f8; border-radius:8px; padding:12px 4px;">
+        <div style="font-size:17px; font-weight:700; color:#41225a;">126</div>
+        <div style="font-size:10px; color:#8A5BA2; font-weight:600; padding-top:3px;">SUBMITTED</div>
+      </div>
+    </td>
+    <td style="width:25%; text-align:center; padding:3px;">
+      <div style="background-color:#f5f0f8; border-radius:8px; padding:12px 4px;">
+        <div style="font-size:17px; font-weight:700; color:#41225a;">37</div>
+        <div style="font-size:10px; color:#8A5BA2; font-weight:600; padding-top:3px;">QUOTED (29%)</div>
+      </div>
+    </td>
+    <td style="width:25%; text-align:center; padding:3px;">
+      <div style="background-color:#e6f9f5; border-radius:8px; padding:12px 4px;">
+        <div style="font-size:17px; font-weight:700; color:#0d9488;">0</div>
+        <div style="font-size:10px; color:#14B8A6; font-weight:600; padding-top:3px;">BOUND (0.0%)</div>
+      </div>
+    </td>
+    <td style="width:25%; text-align:center; padding:3px;">
+      <div style="background-color:#f8f8f8; border-radius:8px; padding:12px 4px;">
+        <div style="font-size:17px; font-weight:700; color:#9ca3af;">81</div>
+        <div style="font-size:10px; color:#9ca3af; font-weight:600; padding-top:3px;">DECLINED (64%)</div>
+      </div>
+    </td>
+    
+  </tr>
+  </table>
+</td></tr>
+<tr><td style="padding:0 24px 20px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="font-size:12px; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; font-weight:700; padding-bottom:4px;">New Submissions</td>
+  </tr>
+  <tr>
+    <td style="font-size:12px; color:#6b7280; padding-bottom:8px;">6 new submissions entered May 13 &nbsp;&mdash;&nbsp; 66 total this month</td>
+  </tr>
+  </table>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e0d4ea; border-radius:8px; overflow:hidden;">
+  <tr style="background-color:#f5f0f8;">
+    <td style="padding:8px 10px; font-size:11px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea; white-space:nowrap;">Date</td>
+    <td style="padding:8px 10px; font-size:11px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;">Named Insured</td>
+    <td style="padding:8px 10px; font-size:11px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;">Status</td>
+    <td style="padding:8px 10px; font-size:11px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;">Quoting Agency</td>
+    <td style="padding:8px 10px; font-size:11px; font-weight:700; color:#8A5BA2; border-bottom:1px solid #e0d4ea;">Agent</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; white-space:nowrap; border-bottom:1px solid #f3f0f6;">May 13</td>
+    <td style="padding:9px 10px; font-size:12px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">JFS TRANSPORTATION LLC</td>
+    <td style="padding:9px 10px; font-size:12px; border-bottom:1px solid #f3f0f6;">
+      <span style="display:inline-block; background-color:#41225a22; color:#41225a; font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px;">Quoted</span>
+    </td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">Marsh &amp; McLennan Northwest</td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">Jerrod Perkins</td>
+  </tr><tr>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; white-space:nowrap; border-bottom:1px solid #f3f0f6;">May 13</td>
+    <td style="padding:9px 10px; font-size:12px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">JFS TRANSPORTATION LLC</td>
+    <td style="padding:9px 10px; font-size:12px; border-bottom:1px solid #f3f0f6;">
+      <span style="display:inline-block; background-color:#41225a22; color:#41225a; font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px;">Quoted</span>
+    </td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">Marsh &amp; Mclennan Northwest</td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">Jerrod Perkins</td>
+  </tr><tr>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; white-space:nowrap; border-bottom:1px solid #f3f0f6;">May 13</td>
+    <td style="padding:9px 10px; font-size:12px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">premium carrier</td>
+    <td style="padding:9px 10px; font-size:12px; border-bottom:1px solid #f3f0f6;">
+      <span style="display:inline-block; background-color:#41225a22; color:#41225a; font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px;">Quoted</span>
+    </td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">HUB International - Chicago, I</td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">Christie Stevens</td>
+  </tr><tr>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; white-space:nowrap; border-bottom:1px solid #f3f0f6;">May 13</td>
+    <td style="padding:9px 10px; font-size:12px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">LAZZY BOYZ EXPRESS LLC</td>
+    <td style="padding:9px 10px; font-size:12px; border-bottom:1px solid #f3f0f6;">
+      <span style="display:inline-block; background-color:#41225a22; color:#41225a; font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px;">Quoted</span>
+    </td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">Acrisure Llc, Dba South Atlant</td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">Tatiana Castro</td>
+  </tr><tr>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; white-space:nowrap; border-bottom:1px solid #f3f0f6;">May 13</td>
+    <td style="padding:9px 10px; font-size:12px; color:#41225a; font-weight:600; border-bottom:1px solid #f3f0f6;">TRUCKING</td>
+    <td style="padding:9px 10px; font-size:12px; border-bottom:1px solid #f3f0f6;">
+      <span style="display:inline-block; background-color:#e8a31722; color:#e8a317; font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px;">Referred</span>
+    </td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">HUB International - Colchester</td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; border-bottom:1px solid #f3f0f6;">CJ St. Onge</td>
+  </tr><tr>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; white-space:nowrap; ">May 13</td>
+    <td style="padding:9px 10px; font-size:12px; color:#41225a; font-weight:600; ">NWI TRANSPORT INC</td>
+    <td style="padding:9px 10px; font-size:12px; ">
+      <span style="display:inline-block; background-color:#6b728022; color:#6b7280; font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px;">Pending</span>
+    </td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; ">Usi Insurance Services, Llc</td>
+    <td style="padding:9px 10px; font-size:12px; color:#6b7280; ">Angela D Madrigal</td>
+  </tr>
+  </table>
+</td></tr>
+<tr><td style="padding:14px 24px 6px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f0f8; border:1px solid #e0d4ea; border-left:4px solid #41225a; border-radius:8px;">
+  <tr><td style="padding:14px 16px 6px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="font-size:11px; font-weight:700; color:#41225a; text-transform:uppercase; letter-spacing:1px;">Large Open Quotes &mdash; Fleet Pipeline</td>
+      <td align="right" style="font-size:11px; color:#6b7280;">Active (pre-bind) only</td>
+    </tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:0 8px 10px 8px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border:1px solid #e0d4ea; border-radius:6px;">
+    <tr>
+    <td style="padding:10px 12px; border-bottom:1px solid #f3f0f6;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="vertical-align:middle;">
+          <div style="font-size:13px; font-weight:600; color:#41225a;">AIBEK INC</div>
+          <div style="font-size:11px; color:#6b7280; padding-top:2px;">RRL Insurance &middot; Unassigned</div>
+        </td>
+        <td align="right" style="vertical-align:middle; white-space:nowrap;">
+          <div style="font-size:13px; font-weight:700; color:#41225a;">$613K</div>
+          <div style="padding-top:3px;"><span style="display:inline-block; background-color:#f5f0f8; color:#41225a; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; letter-spacing:0.4px; text-transform:uppercase; white-space:nowrap;">Submitted</span></div>
+        </td>
+      </tr>
+      </table>
+    </td>
+  </tr><tr>
+    <td style="padding:10px 12px; border-bottom:1px solid #f3f0f6;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="vertical-align:middle;">
+          <div style="font-size:13px; font-weight:600; color:#41225a;">TRUCKMAN TRANSPORT LLC</div>
+          <div style="font-size:11px; color:#6b7280; padding-top:2px;">Usi Insurance Services, Llc &middot; Unassigned</div>
+        </td>
+        <td align="right" style="vertical-align:middle; white-space:nowrap;">
+          <div style="font-size:13px; font-weight:700; color:#41225a;">$578K</div>
+          <div style="padding-top:3px;"><span style="display:inline-block; background-color:#f5f0f8; color:#41225a; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; letter-spacing:0.4px; text-transform:uppercase; white-space:nowrap;">Initial Review</span></div>
+        </td>
+      </tr>
+      </table>
+    </td>
+  </tr><tr>
+    <td style="padding:10px 12px; border-bottom:1px solid #f3f0f6;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="vertical-align:middle;">
+          <div style="font-size:13px; font-weight:600; color:#41225a;">TLC TRANSPORTATION INC</div>
+          <div style="font-size:11px; color:#6b7280; padding-top:2px;">Hub International - Denver, Co  - West Region &middot; Unassigned</div>
+        </td>
+        <td align="right" style="vertical-align:middle; white-space:nowrap;">
+          <div style="font-size:13px; font-weight:700; color:#41225a;">$140K</div>
+          <div style="padding-top:3px;"><span style="display:inline-block; background-color:#f5f0f8; color:#41225a; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; letter-spacing:0.4px; text-transform:uppercase; white-space:nowrap;">Initial Review</span></div>
+        </td>
+      </tr>
+      </table>
+    </td>
+  </tr><tr>
+    <td style="padding:10px 12px; ">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="vertical-align:middle;">
+          <div style="font-size:13px; font-weight:600; color:#41225a;">EASTCOAST LOGISTICS LLC</div>
+          <div style="font-size:11px; color:#6b7280; padding-top:2px;">HUB International - Colchester VT - East Regi &middot; Unassigned</div>
+        </td>
+        <td align="right" style="vertical-align:middle; white-space:nowrap;">
+          <div style="font-size:13px; font-weight:700; color:#41225a;">$67K</div>
+          <div style="padding-top:3px;"><span style="display:inline-block; background-color:#f5f0f8; color:#41225a; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; letter-spacing:0.4px; text-transform:uppercase; white-space:nowrap;">Initial Review</span></div>
+        </td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+    </table>
+  </td></tr>
+  </table>
+</td></tr>
+<tr><td style="background-color:#f5f0f8; padding:16px 24px; border-top:1px solid #e0d4ea;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr><td style="font-size:13px; color:#6b7280;">
+    Full report attached (.docx) with complete state &amp; agency tables
+  </td></tr>
+  <tr><td style="font-size:11px; color:#9ca3af; padding-top:6px;">
+    Source: Metabase DB 133 &nbsp;|&nbsp; Data through 2026-05-14 &nbsp;|&nbsp; Cover Whale Confidential
+  </td></tr>
+  </table>
+</td></tr>
+
+</table>
+<!-- /Container -->
+
+</td></tr>
+</table>
+<!-- /Wrapper -->
+
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  Cover Whale Growth &amp; Distribution Strategy ·
+  <a href="../">all reports</a> ·
+  internal use only · noindex
+</footer>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1400);
+})();
+</script>
+
+</body>
+</html>
