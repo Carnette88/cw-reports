@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Vibes · Cory Arnette · Cover Whale</title>
+  <link rel="stylesheet" href="/cw-reports/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233E1C53'/><text x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='%2353D6D2' font-family='-apple-system' font-weight='800' font-size='14'>CW</text></svg>">
+  <style>
+    /* cw-reports site shell — mirrors command-center base.html layout */
+
+    /* Force layout to grid with sidenav (command-center style.css defines this
+       but the existing class overrides depend on Flask state — we just ensure
+       it stays consistent here). */
+    .layout { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+
+    .sidenav {
+      background: var(--bg-elev);
+      color: rgba(255,255,255,0.92);
+      padding: 22px 14px 26px;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--line);
+    }
+    .sidenav .brand {
+      display: flex; gap: 12px; align-items: center;
+      padding: 0 6px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .sidenav .brand-logo {
+      width: 38px; height: 38px; border-radius: 9px;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.25), 0 2px 12px rgba(62, 28, 83, 0.45);
+    }
+    .sidenav .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
+    .sidenav .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-mono); }
+
+    .sidenav nav { display: flex; flex-direction: column; }
+    .nav-section-label {
+      font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600;
+      padding: 14px 10px 6px;
+    }
+    .nav-item {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1px;
+      transition: all 0.12s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active {
+      background: var(--purple-glow);
+      color: var(--purple);
+      border-color: rgba(180, 124, 219, 0.30);
+    }
+    .nav-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 16px; height: 16px; }
+
+    main.content {
+      padding: 28px 38px 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Credentials gate */
+    #cw-gate {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #cw-gate .spin {
+      width: 48px; height: 48px;
+      border: 4px solid var(--purple);
+      border-top-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: cwspin 0.9s linear infinite;
+    }
+    #cw-gate h2 { font-size: 18px; color: var(--text); margin: 0 0 6px; font-weight: 600; }
+    #cw-gate p { font-size: 13px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
+    @keyframes cwspin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidenav {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--line);
+      }
+      main.content { padding: 22px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cw-gate">
+  <div style="text-align:center;">
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing Vibes</p>
+  </div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></symbol>
+  <symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
+  <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M22 7l-9 9-5-5L1 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+</svg>
+
+<div class="layout">
+  <aside class="sidenav">
+    <div class="brand">
+      <a href="/cw-reports/morning/" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+        <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
+        <div>
+          <div class="brand-title">Growth Strategy Hub</div>
+          <div class="brand-sub">Fri May 15 2026</div>
+        </div>
+      </a>
+    </div>
+    <nav>
+      <div class="nav-section-label">Data</div>
+      <a href="/cw-reports/morning/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-chart"/></svg></span> Production vs Budget
+      </a>
+      <a href="/cw-reports/industry-brief/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-newspaper"/></svg></span> Industry Brief
+      </a>
+      <a href="/cw-reports/agency-flags/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-flag"/></svg></span> Agency Flags
+      </a>
+      <a href="/cw-reports/strategic-pulse/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-trending"/></svg></span> Strategic Pulse
+        <span style="margin-left:6px; font-size:9px; background:rgba(180,124,219,0.18); color:#B47CDB; padding:2px 6px; border-radius:8px; letter-spacing:0.4px; font-weight:700;">DEV</span>
+      </a>
+      <a href="/cw-reports/vibes/" class="nav-item active">
+        <span class="nav-icon"><svg><use href="#i-music"/></svg></span> Vibes
+      </a>
+    </nav>
+  </aside>
+  <main class="content">
+    
+<header class="page-header">
+  <h1>Vibes</h1>
+  <div class="subtitle">
+    Today in Grateful Dead history &middot; Fri May 15 2026
+  </div>
+  
+  <div class="page-description" style="margin-top:10px; font-size:13px; color:var(--muted); line-height:1.5; max-width:720px;">
+    Today's most-downloaded Grateful Dead show recorded on this calendar date, plus its setlist. Rebuilds daily at 6:00 AM.
+  </div>
+  
+</header>
+
+<section class="report-section">
+  <div class="report-card" style="padding: 0;">
+    <div class="report-card-title" style="padding: 14px 20px; border-bottom: 1px solid var(--line); display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-size:12px; color: var(--muted); font-family: var(--font-mono);">
+        Source: archive.org GratefulDead collection · built Fri May 15 2026 · 11:44 AM ET
+      </span>
+      
+    </div>
+    <div class="embedded-email-frame" style="background: #ffffff; color: #222; padding: 0;">
+      
+      <div class="embedded-email-body" style="padding: 24px 28px; overflow-x: auto;">
+        
+
+<div style="padding:24px 28px;">
+
+  <!-- Featured show card -->
+  <div style="background: linear-gradient(135deg, #3E1C53 0%, #5a3478 100%); border-radius:10px; padding:24px; color:#fff;">
+    <div style="font-size:10px; font-weight:700; color:#d4c0e8; text-transform:uppercase; letter-spacing:1.2px;">
+      Today in Grateful Dead history &middot; Fri May 15 2026
+    </div>
+    <div style="display:flex; align-items:center; gap:14px; margin-top:14px;">
+      <span style="display:inline-block; background:#B47CDB; color:#1a0d27; font-size:13px; font-weight:800; padding:4px 12px; border-radius:6px; letter-spacing:0.4px;">1970</span>
+      <span style="font-size:22px; font-weight:700;">Fillmore East (Late Show)</span>
+    </div>
+    <div style="margin-top:6px; font-size:14px; color:#d4c0e8;">New York, NY</div>
+    <div style="margin-top:14px; font-size:13px; color:#c9b3de;">
+      525,948 downloads &middot; 4.86 &#9733; (97 reviews) &middot; 1970-05-15
+    </div>
+    <div style="margin-top:16px;">
+      <a href="https://relisten.net/grateful-dead/1970/05/15" target="_blank" style="color:#53D6D2; text-decoration:none; font-weight:700; font-size:13px; margin-right:16px;">Listen on Relisten &rarr;</a>
+      <a href="https://archive.org/details/gd70-05-15.early-late.sbd.97.sbeok.shnf" target="_blank" style="color:#c9b3de; text-decoration:none; font-size:13px;">Archive.org &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Setlist -->
+  <div style="margin-top:24px;"><div style="font-size:11px; font-weight:700; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Set 1</div><table style="width:100%; border-collapse:collapse; background:#fafafa; border-radius:6px; overflow:hidden;"><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">01.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Don't Ease Me In</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:45</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">02.</td><td style="padding:6px 12px; color:#222; font-size:14px;">I Know You Rider</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">08:54</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">03.</td><td style="padding:6px 12px; color:#222; font-size:14px;">The Rub</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">06:14</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">04.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Friend of the Devil</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:29</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">05.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Long Black Limousine</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:10</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">06.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Candyman</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:52</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">07.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Cumberland Blues</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:52</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">08.</td><td style="padding:6px 12px; color:#222; font-size:14px;">New Speedway Boogie</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">06:56</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">09.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Cold Jordan</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">02:27</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">10.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Six Days on the Road</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:57</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">11.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Whatcha Gonna Do</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:09</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">12.</td><td style="padding:6px 12px; color:#222; font-size:14px;">I Don't Know You</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:03</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">13.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Henry</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:50</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">14.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Portland Woman</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:44</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">15.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Fair Chance to Know</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:17</td></tr></table></div><div style="margin-top:24px;"><div style="font-size:11px; font-weight:700; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Set 2</div><table style="width:100%; border-collapse:collapse; background:#fafafa; border-radius:6px; overflow:hidden;"><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">01.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Last Lonely Eagle</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">02:32</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">02.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Casey Jones</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:39</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">03.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Easy Wind</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">08:23</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">04.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Attics of My Life</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:47</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">05.</td><td style="padding:6px 12px; color:#222; font-size:14px;">St. Stephen -&gt;</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">06:03</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">06.</td><td style="padding:6px 12px; color:#222; font-size:14px;">The Other One &gt;</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">24:26</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">07.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Cosmic Charlie</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">08:16</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">08.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Minglewood Blues</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:48</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">09.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Ballad of Casey Jones</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:02</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">10.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Silver Threads and Golden Needles</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:49</td></tr></table></div><div style="margin-top:24px;"><div style="font-size:11px; font-weight:700; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Set 3</div><table style="width:100%; border-collapse:collapse; background:#fafafa; border-radius:6px; overflow:hidden;"><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">01.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Black Peter</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">07:18</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">02.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Friend of the Devil</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:47</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">03.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Uncle John's Band</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">06:59</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">04.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Candyman</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:51</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">05.</td><td style="padding:6px 12px; color:#222; font-size:14px;">She's Mine</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:24</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">06.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Katie Mae</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:32</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">07.</td><td style="padding:6px 12px; color:#222; font-size:14px;">I Hear A Voice Calling</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">02:58</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">08.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Mama Tried, Sawmill</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">07:10</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">09.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Connection</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:53</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">10.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Me and My Uncle</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:26</td></tr></table></div><div style="margin-top:24px;"><div style="font-size:11px; font-weight:700; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Set 4</div><table style="width:100%; border-collapse:collapse; background:#fafafa; border-radius:6px; overflow:hidden;"><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">01.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Brown Eyed Handsome Man</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:30</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">02.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Louisiana Lady</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:40</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">03.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Can't Pay the Price</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:42</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">04.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Truck Drivin' Man</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:59</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">05.</td><td style="padding:6px 12px; color:#222; font-size:14px;">All I Ever Wanted</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">07:57</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">06.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Workingman Blues</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:15</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">07.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Henry</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:27</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">08.</td><td style="padding:6px 12px; color:#222; font-size:14px;">I Don't Know You</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:09</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">09.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Lodi</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:03</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">10.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Last Loney Eagle</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">06:13</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">11.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Mama Tried</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:04</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">12.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Sawmill</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:44</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">13.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Me and My Uncle</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:54</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">14.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Connection</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:18</td></tr></table></div><div style="margin-top:24px;"><div style="font-size:11px; font-weight:700; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Set 5</div><table style="width:100%; border-collapse:collapse; background:#fafafa; border-radius:6px; overflow:hidden;"><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">01.</td><td style="padding:6px 12px; color:#222; font-size:14px;">China Cat Sunflower &gt;</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:24</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">02.</td><td style="padding:6px 12px; color:#222; font-size:14px;">I Know You Rider</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:29</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">03.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Cumberland Blues</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">05:43</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">04.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Hard to Handle</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">09:42</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">05.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Beat It On Down the Line</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">03:31</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">06.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Morning Dew</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">10:57</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">07.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Good Lovin'</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">14:08</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">08.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Dire Wolf</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:22</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">09.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Next Time You See Me</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:51</td></tr></table></div><div style="margin-top:24px;"><div style="font-size:11px; font-weight:700; color:#8A5BA2; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Set 6</div><table style="width:100%; border-collapse:collapse; background:#fafafa; border-radius:6px; overflow:hidden;"><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">01.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Dark Star &gt;</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">19:40</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">02.</td><td style="padding:6px 12px; color:#222; font-size:14px;">St Stephen &gt;</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">04:23</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">03.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Not Fade Away &gt;</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">06:34</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">04.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Turn On Your Lovelight</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">27:01</td></tr><tr><td style="padding:6px 12px; color:#5C5C68; font-family:monospace; font-size:12px; width:40px;">05.</td><td style="padding:6px 12px; color:#222; font-size:14px;">Cold Jordan</td><td style="padding:6px 12px; color:#8A8A95; font-family:monospace; font-size:12px; text-align:right; width:60px;">02:42</td></tr></table></div>
+
+  <div style="margin-top:24px; font-size:11px; color:#8A8A95; text-align:center;">
+    Show selection mirrors the command-center widget. Setlist pulled from archive.org item metadata.
+  </div>
+
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1300);
+})();
+</script>
+
+</body>
+</html>
