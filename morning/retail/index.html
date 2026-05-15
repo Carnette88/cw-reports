@@ -8,48 +8,67 @@
   <link rel="stylesheet" href="/cw-reports/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233E1C53'/><text x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='%2353D6D2' font-family='-apple-system' font-weight='800' font-size='14'>CW</text></svg>">
   <style>
-    /* Local additions for the standalone cw-reports shell — sit on top of command-center style.css */
-    .layout {
-      display: block;
-      min-height: 100vh;
-    }
-    .top-shell {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(17, 17, 22, 0.85);
-      backdrop-filter: saturate(140%) blur(14px);
-      -webkit-backdrop-filter: saturate(140%) blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
-    .top-shell-inner {
-      max-width: 1180px; margin: 0 auto;
-      padding: 14px 26px;
-      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
-    }
-    .top-shell .brand {
-      display: flex; align-items: center; gap: 14px;
-      padding: 0; border-bottom: none; margin: 0;
-    }
-    .top-shell .brand-logo {
-      height: 34px; width: auto; display: block;
-      border-radius: 7px;
-      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.20), 0 2px 12px rgba(62, 28, 83, 0.40);
-    }
-    .top-shell .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
-    .top-shell .brand-sub { font-size: 11px; color: var(--muted); margin-top: 1px; font-family: var(--font-mono); }
-    .top-shell .top-spacer { flex: 1; }
-    .top-shell .top-link {
-      color: var(--muted); font-size: 12px; font-family: var(--font-mono);
-      padding: 6px 10px; border-radius: 6px;
-      transition: all 0.12s ease;
-    }
-    .top-shell .top-link:hover { color: var(--turquoise); background: var(--surface-2); }
-    main.content {
-      max-width: 1180px; margin: 0 auto;
-      padding: 28px 26px 80px;
-    }
+    /* cw-reports site shell — mirrors command-center base.html layout */
 
-    /* Tighten page-header for the static site */
-    .page-header { padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+    /* Force layout to grid with sidenav (command-center style.css defines this
+       but the existing class overrides depend on Flask state — we just ensure
+       it stays consistent here). */
+    .layout { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+
+    .sidenav {
+      background: var(--bg-elev);
+      color: rgba(255,255,255,0.92);
+      padding: 22px 14px 26px;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--line);
+    }
+    .sidenav .brand {
+      display: flex; gap: 12px; align-items: center;
+      padding: 0 6px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .sidenav .brand-logo {
+      width: 38px; height: 38px; border-radius: 9px;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.25), 0 2px 12px rgba(62, 28, 83, 0.45);
+    }
+    .sidenav .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
+    .sidenav .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-mono); }
+
+    .sidenav nav { display: flex; flex-direction: column; }
+    .nav-section-label {
+      font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600;
+      padding: 14px 10px 6px;
+    }
+    .nav-item {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1px;
+      transition: all 0.12s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active {
+      background: var(--purple-glow);
+      color: var(--purple);
+      border-color: rgba(180, 124, 219, 0.30);
+    }
+    .nav-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 16px; height: 16px; }
+
+    main.content {
+      padding: 28px 38px 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
 
     /* Credentials gate */
     #cw-gate {
@@ -69,9 +88,13 @@
     #cw-gate p { font-size: 13px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
     @keyframes cwspin { to { transform: rotate(360deg); } }
 
-    @media (max-width: 720px) {
-      .top-shell-inner { padding: 12px 16px; }
-      main.content { padding: 22px 16px 60px; }
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidenav {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--line);
+      }
+      main.content { padding: 22px 18px 60px; }
     }
   </style>
 </head>
@@ -85,20 +108,33 @@
   </div>
 </div>
 
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></symbol>
+  <symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></symbol>
+</svg>
+
 <div class="layout">
-  <header class="top-shell">
-    <div class="top-shell-inner">
-      <div class="brand">
+  <aside class="sidenav">
+    <div class="brand">
+      <a href="/cw-reports/morning/" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
         <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
-        <div class="brand-text">
+        <div>
           <div class="brand-title">Growth Reports</div>
-          <div class="brand-sub">cory.arnette@coverwhale.com</div>
+          <div class="brand-sub">Thu May 14 2026</div>
         </div>
-      </div>
-      <div class="top-spacer"></div>
-      <a class="top-link" href="/cw-reports/morning/">Morning Dashboard</a>
+      </a>
     </div>
-  </header>
+    <nav>
+      <div class="nav-section-label">Data</div>
+      <a href="/cw-reports/morning/" class="nav-item active">
+        <span class="nav-icon"><svg><use href="#i-chart"/></svg></span> Production vs Budget
+      </a>
+      <a href="/cw-reports/industry-brief/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-newspaper"/></svg></span> Industry Brief
+      </a>
+    </nav>
+  </aside>
   <main class="content">
     
 
