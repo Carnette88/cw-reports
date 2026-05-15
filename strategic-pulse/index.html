@@ -1,29 +1,170 @@
-<!DOCTYPE html>
-<html><head>
-<meta name="robots" content="noindex,nofollow,noarchive"><meta charset="UTF-8"><title>Strategic Pulse 2026-05-10</title></head>
-<body style="margin:0; padding:0; background-color:#f0edf3; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Strategic Pulse · Cory Arnette · Cover Whale</title>
+  <link rel="stylesheet" href="/cw-reports/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233E1C53'/><text x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='%2353D6D2' font-family='-apple-system' font-weight='800' font-size='14'>CW</text></svg>">
+  <style>
+    /* cw-reports site shell — mirrors command-center base.html layout */
 
-<div id="cw-gate" style="position:fixed;inset:0;z-index:99999;background:#f0edf3;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+    /* Force layout to grid with sidenav (command-center style.css defines this
+       but the existing class overrides depend on Flask state — we just ensure
+       it stays consistent here). */
+    .layout { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+
+    .sidenav {
+      background: var(--bg-elev);
+      color: rgba(255,255,255,0.92);
+      padding: 22px 14px 26px;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--line);
+    }
+    .sidenav .brand {
+      display: flex; gap: 12px; align-items: center;
+      padding: 0 6px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .sidenav .brand-logo {
+      width: 38px; height: 38px; border-radius: 9px;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.25), 0 2px 12px rgba(62, 28, 83, 0.45);
+    }
+    .sidenav .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
+    .sidenav .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-mono); }
+
+    .sidenav nav { display: flex; flex-direction: column; }
+    .nav-section-label {
+      font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600;
+      padding: 14px 10px 6px;
+    }
+    .nav-item {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1px;
+      transition: all 0.12s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active {
+      background: var(--purple-glow);
+      color: var(--purple);
+      border-color: rgba(180, 124, 219, 0.30);
+    }
+    .nav-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 16px; height: 16px; }
+
+    main.content {
+      padding: 28px 38px 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Credentials gate */
+    #cw-gate {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #cw-gate .spin {
+      width: 48px; height: 48px;
+      border: 4px solid var(--purple);
+      border-top-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: cwspin 0.9s linear infinite;
+    }
+    #cw-gate h2 { font-size: 18px; color: var(--text); margin: 0 0 6px; font-weight: 600; }
+    #cw-gate p { font-size: 13px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
+    @keyframes cwspin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidenav {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--line);
+      }
+      main.content { padding: 22px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cw-gate">
   <div style="text-align:center;">
-    <div style="width:48px;height:48px;border:4px solid #8A5BA2;border-top-color:transparent;border-radius:50%;margin:0 auto 16px;animation:cwspin 0.9s linear infinite;"></div>
-    <h2 style="font-size:20px;color:#41225a;margin:0 0 8px;font-weight:600;">Verifying CoverWhale Credentials...</h2>
-    <p style="font-size:14px;color:#6b7280;margin:0;">Strategic Pulse</p>
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing Strategic Pulse</p>
   </div>
 </div>
-<style>@keyframes cwspin{to{transform:rotate(360deg);}}</style>
-<script>
-(function(){
-  function reveal(){
-    var g=document.getElementById('cw-gate');
-    if(!g)return;
-    g.style.opacity='0';
-    g.style.transition='opacity 0.35s ease-out';
-    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},400);
-  }
-  setTimeout(reveal,1500);
-})();
-</script>
 
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></symbol>
+  <symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
+  <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M22 7l-9 9-5-5L1 17"/><path d="M16 7h6v6"/></symbol>
+</svg>
+
+<div class="layout">
+  <aside class="sidenav">
+    <div class="brand">
+      <a href="/cw-reports/morning/" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+        <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
+        <div>
+          <div class="brand-title">Growth Reports</div>
+          <div class="brand-sub">Fri May 15 2026</div>
+        </div>
+      </a>
+    </div>
+    <nav>
+      <div class="nav-section-label">Data</div>
+      <a href="/cw-reports/morning/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-chart"/></svg></span> Production vs Budget
+      </a>
+      <a href="/cw-reports/industry-brief/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-newspaper"/></svg></span> Industry Brief
+      </a>
+      <a href="/cw-reports/agency-flags/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-flag"/></svg></span> Agency Flags
+      </a>
+      <a href="/cw-reports/strategic-pulse/" class="nav-item active">
+        <span class="nav-icon"><svg><use href="#i-trending"/></svg></span> Strategic Pulse
+        <span style="margin-left:6px; font-size:9px; background:rgba(180,124,219,0.18); color:#B47CDB; padding:2px 6px; border-radius:8px; letter-spacing:0.4px; font-weight:700;">DEV</span>
+      </a>
+    </nav>
+  </aside>
+  <main class="content">
+    
+<header class="page-header">
+  <h1>Strategic Pulse</h1>
+  <div class="subtitle">
+    Week of May 10, 2026 &middot; <span style='color:#e8a317;'>v1.0 in development</span>
+  </div>
+</header>
+
+<section class="report-section">
+  <div class="report-card" style="padding: 0;">
+    <div class="report-card-title" style="padding: 14px 20px; border-bottom: 1px solid var(--line); display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-size:12px; color: var(--muted); font-family: var(--font-mono);">
+        Source: Cover Whale Metabase + HubSpot · built Fri May 15 2026 · 11:17 AM ET
+      </span>
+      
+    </div>
+    <div class="embedded-email-frame" style="background: #ffffff; color: #222; padding: 0;">
+      
+      <div class="embedded-email-body" style="padding: 24px 28px; overflow-x: auto;">
+        
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0edf3;">
 <tr><td align="center" style="padding:20px 0;">
 <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="background-color:#ffffff; max-width:640px; border-radius:10px; overflow:hidden; box-shadow:0 2px 10px rgba(65,34,90,0.08);">
@@ -53,6 +194,16 @@
 </td></tr>
 
 
+<tr><td style="padding:0 24px 16px 24px;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fffbf0; border:1px solid #f5dfa0; border-left:4px solid #e8a317; border-radius:6px;">
+    <tr><td style="padding:10px 14px;">
+      <span style="font-size:10px; font-weight:700; color:#664d03; text-transform:uppercase; letter-spacing:0.6px;">In development</span><br/>
+      <span style="font-size:12px; color:#2D2D2D; line-height:1.5;">
+        Strategic Pulse v1.0 is in active calibration. Bullet selection, vertical attribution, and threshold tuning will refine over the next 2 to 3 weekly fires. Treat findings as directional until then.
+      </span>
+    </td></tr>
+  </table>
+</td></tr>
 <tr><td style="padding:0 24px 18px 24px;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border:1px solid #e0d4ea; border-radius:8px; border-left:4px solid #8A5BA2;">
     <tr>
@@ -133,10 +284,33 @@
 </td></tr>
 
 <tr><td style="padding:12px 24px 20px 24px; border-top:1px solid #f3f0f6; color:#6b7280; font-size:10px; text-align:center;">
-  Strategic Pulse v1.0 &middot; generated 2026-05-15 11:02 local &middot; <a href="https://carnette88.github.io/cw-reports/strategic-pulse/" style="color:#8A5BA2; text-decoration:none;">View latest online</a>
+  Strategic Pulse v1.0 &middot; generated 2026-05-15 11:17 local &middot; <a href="https://carnette88.github.io/cw-reports/strategic-pulse/" style="color:#8A5BA2; text-decoration:none;">View latest online</a>
 </td></tr>
 
 </table>
 </td></tr>
 </table>
-</body></html>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1300);
+})();
+</script>
+
+</body>
+</html>
