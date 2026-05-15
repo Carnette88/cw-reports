@@ -1,34 +1,222 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="robots" content="noindex,nofollow,noarchive">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morning Performance Dashboard — Thursday, May 14, 2026</title>
-</head>
-<body style="margin:0; padding:0; background-color:#f0edf3; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%;">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>CW Morning Reports — Thu, May 14 2026</title>
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<style>
+  *,*::before,*::after { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0A0A0D;
+    color: #F5F5F7;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(83, 214, 210, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(180, 124, 219, 0.05) 0%, transparent 50%),
+      #0A0A0D;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
 
-<div id="cw-gate" style="position:fixed;inset:0;z-index:99999;background:#f0edf3;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  /* Top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(17, 17, 22, 0.85);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border-bottom: 1px solid #24242C;
+  }
+  .topbar-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 14px 22px;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand-mark {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #53D6D2 0%, #2BAFAA 100%);
+    color: #0A0A0D;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 9px;
+    font-weight: 800; font-size: 13px; letter-spacing: -0.02em;
+    box-shadow: 0 0 0 1px rgba(83, 214, 210, 0.30), 0 4px 18px rgba(83, 214, 210, 0.18);
+  }
+  .brand-text { line-height: 1.15; }
+  .brand-title { font-weight: 600; font-size: 13px; color: #F5F5F7; letter-spacing: -0.01em; }
+  .brand-sub { font-size: 11px; color: #8A8A95; font-family: 'SF Mono', ui-monospace, Menlo, monospace; margin-top: 2px; }
+
+  .tabs { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+  .tab {
+    color: #8A8A95;
+    padding: 7px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .tab:hover {
+    color: #F5F5F7;
+    background: #1B1B22;
+  }
+  .tab.active {
+    color: #B47CDB;
+    background: rgba(180, 124, 219, 0.18);
+    border-color: rgba(180, 124, 219, 0.30);
+  }
+
+  /* Page label under top bar */
+  .page-head {
+    max-width: 1100px; margin: 0 auto;
+    padding: 28px 22px 8px;
+  }
+  .page-eyebrow {
+    font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
+    color: #53D6D2; font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .page-title {
+    font-size: 26px; font-weight: 700; letter-spacing: -0.02em;
+    color: #F5F5F7; margin: 0;
+  }
+  .page-meta { color: #8A8A95; font-size: 13px; margin-top: 6px; }
+
+  /* Card frame for the embedded report */
+  .report-frame {
+    max-width: 1100px; margin: 18px auto 60px;
+    padding: 0 22px;
+  }
+  .report-card {
+    background: #15151B;
+    border: 1px solid #24242C;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.50), 0 24px 48px rgba(0,0,0,0.30);
+  }
+  .report-card-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid #24242C;
+    background: linear-gradient(180deg, #1B1B22 0%, #15151B 100%);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: #8A8A95;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  }
+  .report-card-header .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #53D6D2; display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 0 8px #53D6D2;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+  .report-card-body { padding: 0; }
+  .report-card-body > table { margin: 0 auto; }
+
+  /* Footer */
+  .site-footer {
+    max-width: 1100px; margin: 0 auto;
+    padding: 24px 22px 40px;
+    color: #5C5C68; font-size: 11px;
+    text-align: center;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  }
+  .site-footer a { color: #8A8A95; text-decoration: none; }
+  .site-footer a:hover { color: #53D6D2; }
+
+  /* Credentials gate splash */
+  #cw-gate {
+    position: fixed; inset: 0; z-index: 99999;
+    background: #0A0A0D;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #cw-gate .spin {
+    width: 48px; height: 48px;
+    border: 4px solid #B47CDB;
+    border-top-color: transparent;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    animation: cwspin 0.9s linear infinite;
+  }
+  #cw-gate h2 {
+    font-size: 18px; color: #F5F5F7; margin: 0 0 6px; font-weight: 600;
+  }
+  #cw-gate p {
+    font-size: 13px; color: #8A8A95; margin: 0;
+    font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+  }
+  @keyframes cwspin { to { transform: rotate(360deg); } }
+
+  /* The embedded report card has its own purple page bg from email styles —
+     neutralize it so it sits cleanly on our dark canvas. */
+  .report-card-body table[role="presentation"][style*="background-color"] {
+    background-color: transparent !important;
+  }
+
+  @media (max-width: 640px) {
+    .topbar-inner { padding: 12px 14px; }
+    .page-head, .report-frame, .site-footer { padding-left: 14px; padding-right: 14px; }
+    .tabs { width: 100%; margin-left: 0; margin-top: 4px; }
+    .page-title { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cw-gate">
   <div style="text-align:center;">
-    <div style="width:48px;height:48px;border:4px solid #8A5BA2;border-top-color:transparent;border-radius:50%;margin:0 auto 16px;animation:cwspin 0.9s linear infinite;"></div>
-    <h2 style="font-size:20px;color:#41225a;margin:0 0 8px;font-weight:600;">Verifying CoverWhale Credentials...</h2>
-    <p style="font-size:14px;color:#6b7280;margin:0;">Accessing Morning Dashboard</p>
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing Company Dashboard</p>
   </div>
 </div>
-<style>@keyframes cwspin{to{transform:rotate(360deg);}}</style>
-<script>
-(function(){
-  function reveal(){
-    var g=document.getElementById('cw-gate');
-    if(!g)return;
-    g.style.opacity='0';
-    g.style.transition='opacity 0.35s ease-out';
-    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},400);
-  }
-  setTimeout(reveal,1500);
-})();
-</script>
 
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">CW</div>
+      <div class="brand-text">
+        <div class="brand-title">Growth Reports</div>
+        <div class="brand-sub">cory.arnette@coverwhale.com</div>
+      </div>
+    </div>
+    <nav class="tabs">
+      <a class="tab active" href="./">Company</a>
+<a class="tab" href="retail/">Retail</a>
+<a class="tab" href="networks/">Networks</a>
+<a class="tab" href="np/">National Partners</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="page-eyebrow">Morning Dashboard</div>
+  <h1 class="page-title">Company</h1>
+  <div class="page-meta">Thu, May 14 2026 · auto-refreshed daily at 6:00 AM ET</div>
+</section>
+
+<section class="report-frame">
+  <div class="report-card">
+    <div class="report-card-header">
+      <span><span class="dot"></span>Live · last build May 14, 2026 · 10:49 PM ET</span>
+      <span>COMPANY</span>
+    </div>
+    <div class="report-card-body">
+      
 
 <!-- Wrapper -->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0edf3;">
@@ -585,6 +773,30 @@
 </td></tr>
 </table>
 <!-- /Wrapper -->
+
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  Cover Whale Growth &amp; Distribution Strategy ·
+  <a href="../">all reports</a> ·
+  internal use only · noindex
+</footer>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1400);
+})();
+</script>
 
 </body>
 </html>
