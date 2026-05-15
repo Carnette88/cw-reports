@@ -26,16 +26,13 @@
       display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
     }
     .top-shell .brand {
-      display: flex; align-items: center; gap: 12px;
+      display: flex; align-items: center; gap: 14px;
       padding: 0; border-bottom: none; margin: 0;
     }
-    .top-shell .brand-mark {
-      width: 36px; height: 36px; border-radius: 9px;
-      background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-deep) 100%);
-      color: #0A0A0D;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 13px; letter-spacing: -0.02em;
-      box-shadow: var(--glow-turquoise);
+    .top-shell .brand-logo {
+      height: 34px; width: auto; display: block;
+      border-radius: 7px;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.20), 0 2px 12px rgba(62, 28, 83, 0.40);
     }
     .top-shell .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
     .top-shell .brand-sub { font-size: 11px; color: var(--muted); margin-top: 1px; font-family: var(--font-mono); }
@@ -92,7 +89,7 @@
   <header class="top-shell">
     <div class="top-shell-inner">
       <div class="brand">
-        <div class="brand-mark">CW</div>
+        <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
         <div class="brand-text">
           <div class="brand-title">Growth Reports</div>
           <div class="brand-sub">cory.arnette@coverwhale.com</div>
