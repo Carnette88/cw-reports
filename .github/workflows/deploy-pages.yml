@@ -1,0 +1,47 @@
+# Static-site Pages deploy for cw-reports.
+#
+# Replaces GitHub's auto-generated legacy Pages workflow, which depends on
+# actions/jekyll-build-pages and was broken for hours when its pinned SHA
+# was unfetchable from GitHub's CDN (2026-05-26). This repo is plain
+# HTML/CSS — no Jekyll processing is actually needed — so we upload the
+# repo as a static artifact and deploy directly.
+
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one in-flight deploy at a time; queue subsequent pushes,
+# don't cancel them (so a quick second push still ships).
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload repo as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
