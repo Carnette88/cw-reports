@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>API Partners · Cory Arnette · Cover Whale</title>
+  <link rel="stylesheet" href="/cw-reports/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233E1C53'/><text x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='%2353D6D2' font-family='-apple-system' font-weight='800' font-size='14'>CW</text></svg>">
+  <style>
+    /* cw-reports site shell — mirrors command-center base.html layout */
+
+    /* Force layout to grid with sidenav (command-center style.css defines this
+       but the existing class overrides depend on Flask state — we just ensure
+       it stays consistent here). */
+    .layout { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+
+    .sidenav {
+      background: var(--bg-elev);
+      color: rgba(255,255,255,0.92);
+      padding: 22px 14px 26px;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--line);
+    }
+    .sidenav .brand {
+      display: flex; gap: 12px; align-items: center;
+      padding: 0 6px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .sidenav .brand-logo {
+      width: 38px; height: 38px; border-radius: 9px;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.25), 0 2px 12px rgba(62, 28, 83, 0.45);
+    }
+    .sidenav .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
+    .sidenav .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-mono); }
+
+    .sidenav nav { display: flex; flex-direction: column; }
+    .nav-section-label {
+      font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600;
+      padding: 14px 10px 6px;
+    }
+    .nav-item {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1px;
+      transition: all 0.12s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active {
+      background: var(--purple-glow);
+      color: var(--purple);
+      border-color: rgba(180, 124, 219, 0.30);
+    }
+    .nav-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 16px; height: 16px; }
+
+    main.content {
+      padding: 28px 38px 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Credentials gate */
+    #cw-gate {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #cw-gate .spin {
+      width: 48px; height: 48px;
+      border: 4px solid var(--purple);
+      border-top-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: cwspin 0.9s linear infinite;
+    }
+    #cw-gate h2 { font-size: 18px; color: var(--text); margin: 0 0 6px; font-weight: 600; }
+    #cw-gate p { font-size: 13px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
+    @keyframes cwspin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidenav {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--line);
+      }
+      main.content { padding: 22px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cw-gate">
+  <div style="text-align:center;">
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing Growth Reports</p>
+  </div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></symbol>
+  <symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
+  <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M22 7l-9 9-5-5L1 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 22v-5"/><path d="M9 7V2"/><path d="M15 7V2"/><path d="M6 13V8h12v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/></symbol>
+</svg>
+
+<div class="layout">
+  <aside class="sidenav">
+    <div class="brand">
+      <a href="/cw-reports/morning/" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+        <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
+        <div>
+          <div class="brand-title">Growth Strategy Hub</div>
+          <div class="brand-sub">Tue May 26 2026</div>
+        </div>
+      </a>
+    </div>
+    <nav>
+      <div class="nav-section-label">Data</div>
+      <a href="/cw-reports/morning/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-chart"/></svg></span> Production vs Budget
+      </a>
+      <a href="/cw-reports/industry-brief/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-newspaper"/></svg></span> Industry Brief
+      </a>
+      <a href="/cw-reports/agency-flags/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-flag"/></svg></span> Agency Flags
+      </a>
+      <a href="/cw-reports/api-partners/" class="nav-item active">
+        <span class="nav-icon"><svg><use href="#i-plug"/></svg></span> API Partners
+      </a>
+      <a href="/cw-reports/strategic-pulse/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-trending"/></svg></span> Strategic Pulse
+        <span style="margin-left:6px; font-size:9px; background:rgba(180,124,219,0.18); color:#B47CDB; padding:2px 6px; border-radius:8px; letter-spacing:0.4px; font-weight:700;">DEV</span>
+      </a>
+      <a href="/cw-reports/vibes/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-music"/></svg></span> Vibes
+      </a>
+    </nav>
+  </aside>
+  <main class="content">
+    
+
+<style>
+  /* === API dashboard local styles === */
+  .api-funnel { display: flex; flex-direction: column; gap: 6px; padding: 18px 4px; }
+  .api-funnel-stage {
+    position: relative;
+    display: flex; align-items: center;
+    height: 64px;
+    background: linear-gradient(90deg,
+      rgba(180,124,219,0.22) 0%,
+      rgba(83,214,210,0.16) 100%);
+    border: 1px solid var(--line-accent);
+    border-radius: 6px;
+    padding: 0 20px;
+    transition: width 0.4s ease;
+  }
+  .api-funnel-stage.is-gwp {
+    background: linear-gradient(90deg,
+      rgba(83,214,210,0.30) 0%,
+      rgba(83,214,210,0.18) 100%);
+    border-color: rgba(83,214,210,0.45);
+    width: auto;
+  }
+  .api-funnel-label {
+    font-size: 12px; letter-spacing: 0.06em; color: var(--text-soft);
+    font-weight: 600; text-transform: uppercase; min-width: 110px;
+  }
+  .api-funnel-value {
+    font-size: 22px; font-weight: 700; color: var(--text);
+    margin-left: auto;
+  }
+  .api-funnel-conv {
+    display: flex; align-items: center; gap: 10px;
+    padding-left: 130px; font-size: 12px; color: var(--muted);
+    height: 24px;
+  }
+  .api-funnel-conv .conv-pct { color: var(--turquoise); font-weight: 700; font-size: 13px; }
+  .api-funnel-conv .conv-arrow {
+    color: var(--muted); font-size: 14px;
+  }
+
+  /* Donut */
+  .donut-wrap { display: flex; align-items: center; gap: 20px; }
+  .donut-svg { flex-shrink: 0; }
+  .donut-legend { flex: 1; font-size: 12px; }
+  .donut-legend-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px dashed var(--line); }
+  .donut-legend-row:last-child { border-bottom: none; }
+  .donut-swatch { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+  .donut-legend-label { flex: 1; color: var(--text-soft); }
+  .donut-legend-pct { color: var(--text); font-weight: 700; min-width: 50px; text-align: right; }
+  .donut-legend-value { color: var(--muted); min-width: 70px; text-align: right; font-size: 11px; }
+  .donut-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .donut-center-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .donut-center-value { font-size: 16px; font-weight: 700; color: var(--text); }
+  .donut-container { position: relative; }
+
+  /* Stage pills */
+  .stage-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .stage-live    { background: var(--green-bg); color: var(--green); }
+  .stage-dormant { background: var(--red-bg);   color: var(--red); }
+  .stage-idle    { background: var(--surface-3); color: var(--muted); }
+
+  /* Pipeline (Prospects) pills */
+  .pipe-testing    { background: rgba(83,214,210,0.18);  color: var(--turquoise); }
+  .pipe-discussion { background: var(--purple-glow);     color: var(--purple); }
+  .pipe-discovery  { background: var(--surface-3);       color: var(--text-soft); }
+  .pipe-parked     { background: rgba(138,138,149,0.10); color: var(--muted); }
+
+  /* Narrative section cards */
+  .narrative-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--purple);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 6px 0;
+  }
+  .narrative-card.is-turquoise { border-left-color: var(--turquoise); }
+  .narrative-card.is-amber     { border-left-color: #F0A06B; }
+  .narrative-card h3 {
+    margin: 0 0 10px 0; font-size: 14px; color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .narrative-card p { margin: 6px 0; color: var(--text-soft); line-height: 1.55; font-size: 13px; }
+  .narrative-card ul { margin: 8px 0; padding-left: 22px; }
+  .narrative-card li { margin: 4px 0; color: var(--text-soft); font-size: 13px; line-height: 1.5; }
+  .narrative-card .callout {
+    background: var(--surface-2); border: 1px solid var(--line);
+    padding: 10px 14px; border-radius: 5px; margin: 10px 0;
+    font-size: 12px; color: var(--text-soft);
+  }
+  .narrative-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0; }
+  @media (max-width: 1100px) { .narrative-grid { grid-template-columns: 1fr; } }
+  .narrative-stat {
+    background: var(--surface-2); border: 1px solid var(--line);
+    padding: 12px 14px; border-radius: 5px;
+  }
+  .narrative-stat-value { font-size: 22px; font-weight: 700; color: var(--text); }
+  .narrative-stat-label { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+  .narrative-stat-sub   { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* Two-column on wide */
+  .api-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 1100px) { .api-two-col { grid-template-columns: 1fr; } }
+</style>
+
+<header class="page-header">
+  <h1>API Partners</h1>
+  <div class="subtitle">
+    
+      Credentialed API service accounts — Live, Dormant, and Idle
+      · <span class="muted">snapshot Tue May 26 · 3:01 PM</span>
+    
+  </div>
+</header>
+
+
+
+
+<section class="report-section">
+  <h2 class="report-h">Team Ownership &amp; Go-to-Market</h2>
+  <div class="api-two-col">
+    <div class="narrative-card is-turquoise">
+      <h3>Partner API ownership — finalized May 21, 2026.</h3>
+      <p>
+        Per Bryan Glenn, the Partner API technical and operational stack is fully owned by <strong>Cassie's Pod</strong>,
+        with <strong>Michael Crowley</strong> retained as the early-stage sales-engineer pairing. Cassie is the single
+        named engagement point — all Partner API work (issues, enhancements, new-partner technical onboarding) routes to her.
+      </p>
+      <ul>
+        <li><strong>Cassie's Pod</strong> — operational ownership of all Partner API support, post-launch enhancements, and partner technical onboarding</li>
+        <li><strong>Michael Crowley</strong> — early-stage SE pairing; remains on Cai/CloudTrucks and similar pre-credentialed testing work</li>
+        <li><strong>Cory</strong> — partner pursuit, BD relationship, and stage progression today; progressively pushing this out to the broader BD team as enablement materials and stage discipline mature</li>
+        <li><strong>Dan Abrahamsen / Bryan Glenn</strong> — exec sponsors; review for major architecture decisions (P6, webhooks, OAuth)</li>
+      </ul>
+      <div class="callout">
+        <strong>Background.</strong> A prior gap in Partner API support was closed when Bryan finalized this ownership
+        structure on May 21. Earlier interim arrangements have been superseded by the Cassie's Pod + Crowley model.
+        Ownership is now unambiguous and routes to a single team.
+      </div>
+    </div>
+
+    <div class="narrative-card">
+      <h3>BD enablement — marketing material in flight.</h3>
+      <p>
+        Cory is finalizing partner-facing marketing material so the BD team (Roland's retail org, James's networks org,
+        and Westy on the NP side) can actively hunt and vet API prospects without bottlenecking through Cory.
+      </p>
+      <ul>
+        <li><strong>API Partner Collateral (v2)</strong> — two-page HTML / PDF sales sheet. Brand-color refresh
+            to CW purple + turquoise complete. Holding for Pat (Marketing) sign-off before Drive upload and broad distribution.</li>
+        <li><strong>API Primer for BD reps</strong> — covers auth, quoting, lifecycle, and known gaps.
+            Reusable as an onboarding doc for any BD rep approaching an API prospect.</li>
+        <li><strong>Vetting checklist</strong> — a short qualification script for BD reps to use on
+            initial API conversations: integration capability, volume potential, stage classification, and the right
+            internal handoff path (Cory for NP/Strategic, Cassie's Pod for technical).</li>
+      </ul>
+      <p>
+        Goal: by end of Q3, every BD rep on the team has the collateral, primer, and vetting checklist in hand and
+        knows when to bring a prospect into the dashboard as <em>Discovery</em> in HubSpot.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="report-section">
+  <h2 class="report-h">Channel — YTD 2026</h2>
+  <div class="report-grid" style="grid-template-columns: repeat(5, 1fr);">
+    <div class="report-card">
+      <div class="report-card-title">Submissions</div>
+      <div class="al-kpi-value">31,375</div>
+      <div class="al-kpi-sub">7 live partners</div>
+    </div>
+    <div class="report-card">
+      <div class="report-card-title">Quoted</div>
+      <div class="al-kpi-value">20,856</div>
+      <div class="al-kpi-sub">66.5% quote rate</div>
+    </div>
+    <div class="report-card">
+      <div class="report-card-title">Bound</div>
+      <div class="al-kpi-value">339</div>
+      <div class="al-kpi-sub">1.63% hit ratio</div>
+    </div>
+    <div class="report-card">
+      <div class="report-card-title">NB GWP</div>
+      <div class="al-kpi-value">$9.06M</div>
+      <div class="al-kpi-sub">$27K avg premium</div>
+    </div>
+    <div class="report-card">
+      <div class="report-card-title">Credentialed Partners</div>
+      <div class="al-kpi-value">15</div>
+      <div class="al-kpi-sub">
+        Live 7 · Dormant 3 · Idle 5
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="report-section">
+  <h2 class="report-h">Conversion Funnel</h2>
+  <div class="api-funnel">
+    
+      
+      <div class="api-funnel-stage"
+           style="width: 100%; min-width: 320px;">
+        <div class="api-funnel-label">Submissions</div>
+        <div class="api-funnel-value">31,375</div>
+      </div>
+      
+      
+      <div class="api-funnel-conv">
+        <span class="conv-arrow">↓</span>
+        <span class="conv-pct">66.5%</span>
+        <span>of submissions received a quote</span>
+      </div>
+      
+    
+      
+      <div class="api-funnel-stage"
+           style="width: 66.47330677290837%; min-width: 320px;">
+        <div class="api-funnel-label">Quoted</div>
+        <div class="api-funnel-value">20,856</div>
+      </div>
+      
+      
+      <div class="api-funnel-conv">
+        <span class="conv-arrow">↓</span>
+        <span class="conv-pct">1.63%</span>
+        <span>of quoted submissions bound (hit ratio)</span>
+      </div>
+      
+    
+      
+      <div class="api-funnel-stage"
+           style="width: 1.0804780876494022%; min-width: 320px;">
+        <div class="api-funnel-label">Bound</div>
+        <div class="api-funnel-value">339</div>
+      </div>
+      
+      
+      <div class="api-funnel-conv">
+        <span class="conv-arrow">↓</span>
+        <span class="conv-pct">$27K</span>
+        <span>average NB premium per bound policy</span>
+      </div>
+      
+    
+      
+      <div class="api-funnel-stage is-gwp" style="width: 40%; min-width: 280px;">
+        <div class="api-funnel-label">NB GWP</div>
+        <div class="api-funnel-value">$9.06M</div>
+      </div>
+      
+      
+    
+  </div>
+</section>
+
+
+<section class="report-section">
+  <h2 class="report-h">Partner Concentration <span class="muted-inline">live partners · YTD 2026</span></h2>
+  <div class="api-two-col">
+
+    
+    <div class="report-card">
+      <div class="report-card-title">Share of NB GWP</div>
+      <div class="donut-wrap">
+        <div class="donut-container" style="width: 180px; height: 180px;">
+          <svg class="donut-svg" width="180" height="180" viewBox="0 0 180 180">
+            
+              <path d="M 90.00 2.00 A 88.00 88.00 0 1 1 35.25 21.10 L 57.65 49.29 A 52.00 52.00 0 1 0 90.00 38.00 Z" fill="#B47CDB" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 35.25 21.10 A 88.00 88.00 0 0 1 79.52 2.63 L 83.81 38.37 A 52.00 52.00 0 0 0 57.65 49.29 Z" fill="#53D6D2" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 79.52 2.63 A 88.00 88.00 0 0 1 85.38 2.12 L 87.27 38.07 A 52.00 52.00 0 0 0 83.81 38.37 Z" fill="#F0A06B" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 85.38 2.12 A 88.00 88.00 0 0 1 88.09 2.02 L 88.87 38.01 A 52.00 52.00 0 0 0 87.27 38.07 Z" fill="#FFD56B" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 88.09 2.02 A 88.00 88.00 0 0 1 90.00 2.00 L 90.00 38.00 A 52.00 52.00 0 0 0 88.87 38.01 Z" fill="#7BB3F0" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+          </svg>
+          <div class="donut-center">
+            <div class="donut-center-label">Total</div>
+            <div class="donut-center-value">$9.06M</div>
+          </div>
+        </div>
+        <div class="donut-legend">
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #B47CDB;"></span>
+            <span class="donut-legend-label">Cover Badger</span>
+            <span class="donut-legend-pct">89.3%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #53D6D2;"></span>
+            <span class="donut-legend-label">Reliance Partners</span>
+            <span class="donut-legend-pct">8.8%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #F0A06B;"></span>
+            <span class="donut-legend-label">RT Specialty (RSG Connector)</span>
+            <span class="donut-legend-pct">1.1%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #FFD56B;"></span>
+            <span class="donut-legend-label">Aronson Group</span>
+            <span class="donut-legend-pct">0.5%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #7BB3F0;"></span>
+            <span class="donut-legend-label">Southwestern Insurance</span>
+            <span class="donut-legend-pct">0.3%</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="report-card">
+      <div class="report-card-title">Share of Submissions</div>
+      <div class="donut-wrap">
+        <div class="donut-container" style="width: 180px; height: 180px;">
+          <svg class="donut-svg" width="180" height="180" viewBox="0 0 180 180">
+            
+              <path d="M 90.00 2.00 A 88.00 88.00 0 1 1 22.63 146.62 L 50.19 123.46 A 52.00 52.00 0 1 0 90.00 38.00 Z" fill="#B47CDB" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 22.63 146.62 A 88.00 88.00 0 0 1 8.30 57.31 L 41.72 70.68 A 52.00 52.00 0 0 0 50.19 123.46 Z" fill="#53D6D2" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 8.30 57.31 A 88.00 88.00 0 0 1 57.66 8.16 L 70.89 41.64 A 52.00 52.00 0 0 0 41.72 70.68 Z" fill="#F0A06B" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 57.66 8.16 A 88.00 88.00 0 0 1 74.73 3.34 L 80.98 38.79 A 52.00 52.00 0 0 0 70.89 41.64 Z" fill="#FFD56B" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 74.73 3.34 A 88.00 88.00 0 0 1 89.89 2.00 L 89.94 38.00 A 52.00 52.00 0 0 0 80.98 38.79 Z" fill="#7BB3F0" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+              <path d="M 89.89 2.00 A 88.00 88.00 0 0 1 90.00 2.00 L 90.00 38.00 A 52.00 52.00 0 0 0 89.94 38.00 Z" fill="#4D4D5A" stroke="var(--surface)" stroke-width="1.5"></path>
+            
+          </svg>
+          <div class="donut-center">
+            <div class="donut-center-label">Total</div>
+            <div class="donut-center-value">31,375</div>
+          </div>
+        </div>
+        <div class="donut-legend">
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #B47CDB;"></span>
+            <span class="donut-legend-label">Cover Badger</span>
+            <span class="donut-legend-pct">63.9%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #53D6D2;"></span>
+            <span class="donut-legend-label">Aronson Group</span>
+            <span class="donut-legend-pct">17.2%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #F0A06B;"></span>
+            <span class="donut-legend-label">Reliance Partners</span>
+            <span class="donut-legend-pct">13.0%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #FFD56B;"></span>
+            <span class="donut-legend-label">RT Specialty (RSG Connector)</span>
+            <span class="donut-legend-pct">3.2%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #7BB3F0;"></span>
+            <span class="donut-legend-label">Southwestern Insurance</span>
+            <span class="donut-legend-pct">2.8%</span>
+          </div>
+          
+          <div class="donut-legend-row">
+            <span class="donut-swatch" style="background: #4D4D5A;"></span>
+            <span class="donut-legend-label">Other (2)</span>
+            <span class="donut-legend-pct">0.0%</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="report-section">
+  <h2 class="report-h">All Credentialed Partners <span class="muted-inline">15 accounts</span></h2>
+  <div class="report-table-wrap">
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Partner</th>
+          <th>Status</th>
+          <th>Service Account</th>
+          <th>Owner</th>
+          <th class="num">Subs YTD</th>
+          <th class="num">Quoted</th>
+          <th class="num">Bound</th>
+          <th class="num">Hit %</th>
+          <th class="num">GWP YTD</th>
+          <th class="num">MTD GWP</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>
+            <strong>Cover Badger</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Wholesaler. Dominant API partner (~63% of API subs). Andrew Hering owner contact. Apr 10 polling incident.</div>
+          </td>
+          <td><span class="stage-pill stage-live">Live</span></td>
+          <td class="muted" style="font-size: 11px;">api@coverbadger.com</td>
+          <td>James Reid</td>
+          <td class="num">20,041</td>
+          <td class="num">14,167</td>
+          <td class="num strong">305</td>
+          <td class="num">2.15%</td>
+          <td class="num strong">$8.09M</td>
+          <td class="num">$1.03M</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Reliance Partners</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Conquest account. Down ~76% YoY. Oct 2025 conversion cliff confirmed.</div>
+          </td>
+          <td><span class="stage-pill stage-live">Live</span></td>
+          <td class="muted" style="font-size: 11px;">rapid_quote_prod@reliancepartners.com</td>
+          <td>James Reid</td>
+          <td class="num">4,064</td>
+          <td class="num">2,314</td>
+          <td class="num strong">29</td>
+          <td class="num">1.25%</td>
+          <td class="num strong">$796K</td>
+          <td class="num">$116K</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>RT Specialty (RSG Connector)</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Migrated from ryansg.m8r.co Oct 2025. Baker hired Q1 to drive conversion on Will Jacob side.</div>
+          </td>
+          <td><span class="stage-pill stage-live">Live</span></td>
+          <td class="muted" style="font-size: 11px;">coverwhale-prod@rsgconnector.com</td>
+          <td>James Reid</td>
+          <td class="num">1,008</td>
+          <td class="num">616</td>
+          <td class="num strong">3</td>
+          <td class="num">0.49%</td>
+          <td class="num strong">$96K</td>
+          <td class="num">$550</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Aronson Group</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">High volume, near-zero conversion (1 bound YTD on 5,124 subs). Needs appetite calibration call.</div>
+          </td>
+          <td><span class="stage-pill stage-live">Live</span></td>
+          <td class="muted" style="font-size: 11px;">api@aronsongroup.net</td>
+          <td>TBD</td>
+          <td class="num">5,391</td>
+          <td class="num">3,362</td>
+          <td class="num strong">1</td>
+          <td class="num">0.03%</td>
+          <td class="num strong">$44K</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Southwestern Insurance</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Degraded YoY ($266K → $31K). Low priority.</div>
+          </td>
+          <td><span class="stage-pill stage-live">Live</span></td>
+          <td class="muted" style="font-size: 11px;">coverwhaleapi@southwesternins.com</td>
+          <td>TBD</td>
+          <td class="num">865</td>
+          <td class="num">394</td>
+          <td class="num strong">1</td>
+          <td class="num">0.25%</td>
+          <td class="num strong">$31K</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Auto Insurtech</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Trickle. Last submission March 15, 2026 — flag for follow-up.</div>
+          </td>
+          <td><span class="stage-pill stage-live">Live</span></td>
+          <td class="muted" style="font-size: 11px;">cw.api@autoinsurtech.dev</td>
+          <td>TBD</td>
+          <td class="num">4</td>
+          <td class="num">2</td>
+          <td class="num strong">0</td>
+          <td class="num">0.00%</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Dream Assurance Group</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Going dormant. 2025 produced $579K; 2026 = 2 subs / $0. Owner outreach needed.</div>
+          </td>
+          <td><span class="stage-pill stage-live">Live</span></td>
+          <td class="muted" style="font-size: 11px;">api@dreamassurancegroup.com</td>
+          <td>TBD</td>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num strong">0</td>
+          <td class="num">0.00%</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>AFI (Allstate Freight Insurance)</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Last submission Sept 2025. $250K of 2025 NB GWP walked. Re-engagement worth a call.</div>
+          </td>
+          <td><span class="stage-pill stage-dormant">Dormant</span></td>
+          <td class="muted" style="font-size: 11px;">coverwhaleapi@teamafi.com</td>
+          <td>TBD</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>SaferHaul</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Last activity May 2025. Re-engagement candidate.</div>
+          </td>
+          <td><span class="stage-pill stage-dormant">Dormant</span></td>
+          <td class="muted" style="font-size: 11px;">api@saferhaul.com</td>
+          <td>TBD</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Ryan SG (migrated)</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Replaced by rsgconnector.com Oct 2025. Historical record only.</div>
+          </td>
+          <td><span class="stage-pill stage-dormant">Dormant</span></td>
+          <td class="muted" style="font-size: 11px;">coverwhale-prod@ryansg.m8r.co</td>
+          <td>James Reid</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>4LessInsurance</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Provisioned July 2025. Setup never completed. Candidate to deprovision or re-engage.</div>
+          </td>
+          <td><span class="stage-pill stage-idle">Idle Credentials</span></td>
+          <td class="muted" style="font-size: 11px;">api@4lessinsurance.net</td>
+          <td>TBD</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Cody Folsom Insurance</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Provisioned May 2023. Long-dormant. Likely dead — deprovision.</div>
+          </td>
+          <td><span class="stage-pill stage-idle">Idle Credentials</span></td>
+          <td class="muted" style="font-size: 11px;">api@codyfolsominsurance.com</td>
+          <td>TBD</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>FIF (CW internal brand)</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">CW internal brand account provisioned May 2023. Never wired into a live integration.</div>
+          </td>
+          <td><span class="stage-pill stage-idle">Idle Credentials</span></td>
+          <td class="muted" style="font-size: 11px;">fif-api@coverwhale.com</td>
+          <td>Internal</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Honor (CW internal brand)</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">CW internal brand account provisioned June 2024. Never wired into a live integration.</div>
+          </td>
+          <td><span class="stage-pill stage-idle">Idle Credentials</span></td>
+          <td class="muted" style="font-size: 11px;">honor-api@coverwhale.com</td>
+          <td>Internal</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong>Strong Insurance</strong>
+            <div class="muted" style="font-size: 11px; margin-top: 2px;">Provisioned Sept 2024. No follow-through. Candidate to deprovision.</div>
+          </td>
+          <td><span class="stage-pill stage-idle">Idle Credentials</span></td>
+          <td class="muted" style="font-size: 11px;">api@stronginsuranceinc.com</td>
+          <td>TBD</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num strong">0</td>
+          <td class="num">—</td>
+          <td class="num strong">$0</td>
+          <td class="num">$0</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="report-section">
+  <h2 class="report-h">Prospects &amp; Dev Work <span class="muted-inline">9 partners in flight · not yet credentialed in production</span></h2>
+
+  
+    
+    <div style="margin-bottom: 18px;">
+      <div style="display: flex; align-items: center; gap: 10px; margin: 14px 0 8px 0;">
+        <span class="stage-pill pipe-discovery">Discovery</span>
+        <span class="muted" style="font-size: 12px;">9 partners</span>
+      </div>
+      <div class="report-table-wrap">
+        <table class="report-table compact">
+          <thead>
+            <tr>
+              <th>Partner</th>
+              <th>Owner</th>
+              <th>Vertical</th>
+              <th>Next Milestone</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>
+                <strong>Acrisure</strong>
+                <div class="muted" style="font-size: 11px;">acrisure.com</div>
+              </td>
+              <td>Westy / Cory</td>
+              <td>National Partner (Strategic)</td>
+              <td>May 31 API go/no-go</td>
+              <td class="muted" style="font-size: 12px;">Strategic-tier 4.25, $320M accessible book, 18+ sub-agencies. Paul Zizzo (SE) is the internal champion. May 31 go/no-go decision, June 15 RRL first-bind target.</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>Applied Systems / Ivans / Tarmika</strong>
+                <div class="muted" style="font-size: 11px;">appliedsystems.com</div>
+              </td>
+              <td>Cory (direct)</td>
+              <td>Tech Platform</td>
+              <td>PM review feedback + pricing</td>
+              <td class="muted" style="font-size: 12px;">Apr 29 restart call w/ Kyle Heller, Chris Lane (Tarmika co-founder), Madison Gillespie (new POC). Materials sent. Chris reviewing with PM for integration path (Ask Kodiak standalone vs. full IDP/Tarmika) + pricing.</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>Bridge Specialty Group</strong>
+                <div class="muted" style="font-size: 11px;">bridgespecialtygroup.com</div>
+              </td>
+              <td>Cory (early stage)</td>
+              <td>National Partner</td>
+              <td>Schedule introductory call</td>
+              <td class="muted" style="font-size: 12px;">Warm-entry via Aaron Ealy (Director, Practice Group Enablement). Transportation Practice Group vacancy. HULL consolidation underway.</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>Brown &amp; Brown</strong>
+                <div class="muted" style="font-size: 11px;">bbinsurance.com</div>
+              </td>
+              <td>Westy</td>
+              <td>National Partner (Developing)</td>
+              <td>First production target June 15</td>
+              <td class="muted" style="font-size: 12px;">Developing NP (4.25 score, held below Strategic). Brian McNulty + Bryan Paulozzi contacts. Replaces Risk Strategies in the NP map.</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>Cai / CloudTrucks</strong>
+                <div class="muted" style="font-size: 11px;">cloudtrucks.com</div>
+              </td>
+              <td>Michael Crowley (early SE)</td>
+              <td>National Partner</td>
+              <td>Phase 1 → production handoff</td>
+              <td class="muted" style="font-size: 12px;">Embedded insurance arm of CloudTrucks. Live-environment testing via Crowley&#39;s account. Excluded from Westy Q2 attribution.</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>Howden US Trucking</strong>
+                <div class="muted" style="font-size: 11px;">howdengroup.com</div>
+              </td>
+              <td>Cory + Westy</td>
+              <td>National Partner</td>
+              <td>Brief refresh from May 6 call</td>
+              <td class="muted" style="font-size: 12px;">Appointed Apr 29, actively quoting May 4. May 6 working call complete. $100M / 2-year submission goal. ($30B global GWP context.)</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>LogRock / CSLR</strong>
+                <div class="muted" style="font-size: 11px;">logrock.com</div>
+              </td>
+              <td>Roland (Retail BDL) / Erika Cabrera (BDA)</td>
+              <td>Retailer</td>
+              <td>Decide service account + P6 gating</td>
+              <td class="muted" style="font-size: 12px;">Currently portal-RPA via API_USER account (office@charlesstring.com). Not true API. 0.6% YTD conversion (4,031 T12 subs / 42 binds). May 21 conversation flagged graduation to real API.</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>Wholesure</strong>
+                <div class="muted" style="font-size: 11px;">wholesure.com</div>
+              </td>
+              <td>Cory / Westy</td>
+              <td>Wholesale (Special Risk)</td>
+              <td>Confirm production go-live milestone</td>
+              <td class="muted" style="font-size: 12px;">40,000+ agency network. Wholesure - Special Risk Underwriting Partners. Active testing per current state.</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <strong>ZestyAI / ZORRO</strong>
+                <div class="muted" style="font-size: 11px;">zesty.ai</div>
+              </td>
+              <td>Cory</td>
+              <td>National Partner</td>
+              <td>Decision: pursue or park</td>
+              <td class="muted" style="font-size: 12px;">Met Apr 13. ZORRO is agency-facing not carrier. E&amp;S gap confirmed. Lower priority.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+</section>
+
+
+<section class="report-section">
+  <h2 class="report-h">HubSpot Integration Status</h2>
+  <div class="narrative-card is-amber">
+    <h3>The tagging system exists but isn't disciplined.</h3>
+    <p>
+      HubSpot ships two boolean properties on the Company object — <code>api_interested</code> and <code>api_qualified</code> —
+      that were created at some point to act as the program flag for API partners. Both are still in use, but neither matches
+      the reality of who is in the API program at any given stage.
+    </p>
+
+    <div class="narrative-grid">
+      <div class="narrative-stat">
+        <div class="narrative-stat-label">api_interested = true</div>
+        <div class="narrative-stat-value">72</div>
+        <div class="narrative-stat-sub">companies in HubSpot</div>
+      </div>
+      <div class="narrative-stat">
+        <div class="narrative-stat-label">api_qualified = true</div>
+        <div class="narrative-stat-value">49</div>
+        <div class="narrative-stat-sub">companies in HubSpot</div>
+      </div>
+      <div class="narrative-stat">
+        <div class="narrative-stat-label">Actually credentialed</div>
+        <div class="narrative-stat-value">15</div>
+        <div class="narrative-stat-sub">per CW user table + memo registry</div>
+      </div>
+    </div>
+
+    <p>
+      The gap between 49 HubSpot-flagged records and
+      15 actual credentialed accounts is the disconnect. Today this dashboard's
+      source of truth is a hand-maintained YAML registry plus the May 11, 2026 API Partner Audit memo — not HubSpot.
+      That's fragile and won't scale as the BD team starts actively hunting API partners.
+    </p>
+
+    <h3 style="margin-top: 14px;">Recommendation — unify the schema, mandate the discipline.</h3>
+    <ul>
+      <li><strong>Replace the two booleans with one stage field.</strong> Propose a new Company property
+          <code>api_partner_stage</code> as an enum: <em>Discovery → In Discussion → Testing → Live → Dormant → Idle Credentials</em>.
+          That mirrors the dashboard and gives BD a single source of truth for "what stage is this partner at."</li>
+      <li><strong>Mandate the field on every API-program record.</strong> Required when a partner is added to the program,
+          updated when the partner advances or stalls. BD owns updating it; Cory + Cassie's Pod can audit weekly.</li>
+      <li><strong>Retire <code>api_interested</code> / <code>api_qualified</code>.</strong> Backfill the 49
+          records into the new enum where they actually belong, then hide the legacy booleans to prevent re-pollution.</li>
+      <li><strong>Flip the data flow.</strong> Once the discipline holds, HubSpot becomes the registry. This dashboard reads from HubSpot directly,
+          and the YAML retires. Then a partner advancing in HubSpot shows on the dashboard automatically.</li>
+    </ul>
+    <div class="callout">
+      <strong>Why this matters:</strong> Without a clean tag, the BD team can't be measured on API pipeline progression and Cory + Cassie's Pod
+      lose visibility on partners that show interest but stall. With the tag in place, the funnel from "first conversation" to
+      "credentialed and producing" becomes a real reportable metric.
+    </div>
+  </div>
+</section>
+
+
+
+<section class="report-section">
+  <div class="muted" style="font-size: 11px;">
+    <strong>Methodology.</strong>
+    Live = service account actively submitting YTD.
+    Dormant = was live in 2025, ≤ a handful of subs YTD 2026.
+    Idle = API service account provisioned but no production history — deprovision-or-reactivate candidates.
+    Submissions are NB only (<code>transaction_id=0</code>, <code>status NOT IN (0,7)</code>, any LOB quote-request flag).
+    Quoted = status IN (1,3,10). Bound = status=1.
+    GWP from <code>dw_reader.policy_transaction_premium</code> filtered to New Business, joined on <code>submission_id</code>.
+    Setup/Testing partners appear in the <em>Prospects &amp; Dev Work</em> section above with their pipeline status (Testing / In Discussion / Discovery / Parked) — they have no service account yet and so produce no Metabase signal.
+    <br/>Refresh: <code>python3 data-exports/api-partners/refresh-api-partners.py</code>
+  </div>
+</section>
+
+
+
+
+  </main>
+</div>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1300);
+})();
+</script>
+
+</body>
+</html>
