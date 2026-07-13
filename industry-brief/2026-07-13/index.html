@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Industry Brief · 2026-07-13 · Cory Arnette · Cover Whale</title>
+  <link rel="stylesheet" href="/cw-reports/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233E1C53'/><text x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='%2353D6D2' font-family='-apple-system' font-weight='800' font-size='14'>CW</text></svg>">
+  <style>
+    /* cw-reports site shell — mirrors command-center base.html layout */
+
+    /* Force layout to grid with sidenav (command-center style.css defines this
+       but the existing class overrides depend on Flask state — we just ensure
+       it stays consistent here). */
+    .layout { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+
+    .sidenav {
+      background: var(--bg-elev);
+      color: rgba(255,255,255,0.92);
+      padding: 22px 14px 26px;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--line);
+    }
+    .sidenav .brand {
+      display: flex; gap: 12px; align-items: center;
+      padding: 0 6px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .sidenav .brand-logo {
+      width: 38px; height: 38px; border-radius: 9px;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.25), 0 2px 12px rgba(62, 28, 83, 0.45);
+    }
+    .sidenav .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
+    .sidenav .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-mono); }
+
+    .sidenav nav { display: flex; flex-direction: column; }
+    .nav-section-label {
+      font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600;
+      padding: 14px 10px 6px;
+    }
+    .nav-item {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1px;
+      transition: all 0.12s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active {
+      background: var(--purple-glow);
+      color: var(--purple);
+      border-color: rgba(180, 124, 219, 0.30);
+    }
+    .nav-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 16px; height: 16px; }
+
+    main.content {
+      padding: 28px 38px 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Credentials gate */
+    #cw-gate {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #cw-gate .spin {
+      width: 48px; height: 48px;
+      border: 4px solid var(--purple);
+      border-top-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: cwspin 0.9s linear infinite;
+    }
+    #cw-gate h2 { font-size: 18px; color: var(--text); margin: 0 0 6px; font-weight: 600; }
+    #cw-gate p { font-size: 13px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
+    @keyframes cwspin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidenav {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--line);
+      }
+      main.content { padding: 22px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cw-gate">
+  <div style="text-align:center;">
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing Growth Reports</p>
+  </div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></symbol>
+  <symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
+  <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M22 7l-9 9-5-5L1 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 22v-5"/><path d="M9 7V2"/><path d="M15 7V2"/><path d="M6 13V8h12v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/></symbol>
+</svg>
+
+<div class="layout">
+  <aside class="sidenav">
+    <div class="brand">
+      <a href="/cw-reports/morning/" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+        <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
+        <div>
+          <div class="brand-title">Growth Strategy Hub</div>
+          <div class="brand-sub">Mon Jul 13 2026</div>
+        </div>
+      </a>
+    </div>
+    <nav>
+      <div class="nav-section-label">Data</div>
+      <a href="/cw-reports/morning/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-chart"/></svg></span> Production vs Budget
+      </a>
+      <a href="/cw-reports/industry-brief/" class="nav-item active">
+        <span class="nav-icon"><svg><use href="#i-newspaper"/></svg></span> Industry Brief
+      </a>
+      <a href="/cw-reports/agency-flags/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-flag"/></svg></span> Agency Flags
+      </a>
+      <a href="/cw-reports/api-partners/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-plug"/></svg></span> API Partners
+      </a>
+      <a href="/cw-reports/strategic-pulse/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-trending"/></svg></span> Strategic Pulse
+        <span style="margin-left:6px; font-size:9px; background:rgba(180,124,219,0.18); color:#B47CDB; padding:2px 6px; border-radius:8px; letter-spacing:0.4px; font-weight:700;">DEV</span>
+      </a>
+    </nav>
+  </aside>
+  <main class="content">
+    
+
+
+
+
+<header class="page-header">
+  <h1>Industry Brief</h1>
+  <div class="subtitle">
+    
+      2026-07-13 &middot; trucking + trucking-insurance daily digest
+      
+        &middot; <span class="muted">built 2026-07-13 08:35</span>
+      
+    
+  </div>
+</header>
+
+
+
+
+<div class="tabs">
+  <a href="/cw-reports/industry-brief/2026-07-13/"
+     class="tab active">Overview</a>
+  
+    <a href="/cw-reports/industry-brief/2026-07-13/theme/01/"
+       class="tab ">
+      Freight Cycle
+    </a>
+  
+    <a href="/cw-reports/industry-brief/2026-07-13/theme/02/"
+       class="tab ">
+      Regulatory Reset
+    </a>
+  
+    <a href="/cw-reports/industry-brief/2026-07-13/theme/03/"
+       class="tab ">
+      Liability Environment
+    </a>
+  
+</div>
+
+
+
+  <div style="margin: 4px 0 14px 0; font-size: 12px; color: var(--muted);">
+    Archive:
+    
+      <a href="/cw-reports/industry-brief/2026-07-13/"
+         style="color: var(--purple); text-decoration: none; margin-right: 10px; font-weight: 700;">
+        2026-07-13
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-10/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-10
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-09/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-09
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-08/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-08
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-07/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-07
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-06/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-06
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-02/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-02
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-01/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-01
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-30/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-30
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-29/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-29
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-26/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-26
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-25/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-25
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-24/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-24
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-23/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-23
+      </a>
+    
+  </div>
+
+
+
+
+
+  
+  <section class="report-section">
+    <h2 class="report-h">Today in 30 seconds</h2>
+    <div class="report-callout" style="border-left-color: var(--purple); background: var(--surface-2);">
+      Three signals dominate the desk this morning: freight capacity is tightening as 2026 build slots fill and van spot rates set fresh records, Washington is quietly rolling back a stack of trucking compliance costs even as English-proficiency out-of-service orders bite, and the nuclear-verdict environment keeps escalating with a fresh $6M judgment against R+L and a mid-size carrier heading to bankruptcy over a $3M claim. Read together: submission tailwind building, cost structure loosening slightly, and liability tail thickening — a favorable setup for a telematics-backed underwriter.
+    </div>
+  </section>
+
+  
+  
+  <section class="report-section">
+    <h2 class="report-h">Market Signals (SONAR · National)</h2>
+    <div class="report-table-wrap">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th class="num">Value</th>
+            <th class="num">MoM</th>
+            <th>Trend</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            
+            
+              <tr>
+                <td><strong>OTRI (Tightening)</strong></td>
+                <td class="num strong">20.61%</td>
+                <td class="num down">
+                  -3.64%
+                </td>
+                <td>
+                  
+                    <img src="data:image/png;base64,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"
+                         alt="30-day trend"
+                         style="height:22px; vertical-align:middle; filter: invert(0.85);"/>
+                  
+                </td>
+                <td class="muted">Tightening market — increased operator activity, higher insurance shopping</td>
+              </tr>
+            
+          
+            
+            
+              <tr>
+                <td><strong>OTVI (Freight Demand)</strong></td>
+                <td class="num strong">257.98</td>
+                <td class="num down">
+                  -13.01%
+                </td>
+                <td>
+                  
+                    <img src="data:image/png;base64,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"
+                         alt="30-day trend"
+                         style="height:22px; vertical-align:middle; filter: invert(0.85);"/>
+                  
+                </td>
+                <td class="muted">Demand index — operator volume signal</td>
+              </tr>
+            
+          
+            
+            
+              <tr>
+                <td><strong>NTI (Spot Rate)</strong></td>
+                <td class="num strong">$3.56/mi</td>
+                <td class="num neutral">
+                  +0.27%
+                </td>
+                <td>
+                  
+                    <span class="muted">—</span>
+                  
+                </td>
+                <td class="muted">National Truckload Spot Rate Index</td>
+              </tr>
+            
+          
+            
+            
+              <tr>
+                <td><strong>Truck-Stop Diesel</strong></td>
+                <td class="num strong">$4.82/gal</td>
+                <td class="num neutral">
+                  DOE $4.46
+                </td>
+                <td>
+                  
+                    <span class="muted">—</span>
+                  
+                </td>
+                <td class="muted">Daily truck-stop avg / weekly DOE</td>
+              </tr>
+            
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+
+  
+  
+  <section class="report-section">
+    <h2 class="report-h">CW Pulse</h2>
+    <div class="report-card">
+      <div style="font-size: 14px; line-height: 1.5;">
+        <strong style="color: var(--purple);">935</strong>
+        submissions yesterday (Fri Jul 10) &mdash;
+        <span class="down" style="font-weight:700;">
+          ▼
+          19.0%
+        </span>
+        below
+        the trailing 30-BD avg of
+        <strong>1,154</strong>.
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <section class="report-section">
+    <h2 class="report-h">Themes Today</h2>
+    <div class="report-table-wrap">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th style="width:60px;">#</th>
+            <th>Theme</th>
+            <th>Impact</th>
+            <th style="width:80px;" class="num">Stories</th>
+            <th style="width:80px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong style="color: var(--purple);">01</strong></td>
+            <td>
+              <div class="muted" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Freight Cycle</div>
+              <div style="font-weight: 700;">Capacity Whiplash — 2026 Build Slots Filling, Spot Rates Cross Contract for First Time Since 2022</div>
+            </td>
+            <td>
+              <span class="rag rag-red" style="margin-right:6px;">Submission: HIGH</span><span class="rag rag-amber" style="margin-right:6px;">Pricing: MED</span><span class="rag rag-red" style="margin-right:6px;">Distribution: HIGH</span>
+            </td>
+            <td class="num">6</td>
+            <td><a href="/cw-reports/industry-brief/2026-07-13/theme/01/" style="color: var(--purple); font-size: 12px;">Open →</a></td>
+          </tr>
+          
+          <tr>
+            <td><strong style="color: var(--purple);">02</strong></td>
+            <td>
+              <div class="muted" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Regulatory Reset</div>
+              <div style="font-weight: 700;">Washington Rolls Back Truck Compliance Costs — But Tightens the Screws on the Driver</div>
+            </td>
+            <td>
+              <span class="rag rag-amber" style="margin-right:6px;">Submission: MED</span><span class="rag rag-amber" style="margin-right:6px;">Pricing: MED</span><span class="rag rag-green" style="margin-right:6px;">Distribution: LOW</span>
+            </td>
+            <td class="num">6</td>
+            <td><a href="/cw-reports/industry-brief/2026-07-13/theme/02/" style="color: var(--purple); font-size: 12px;">Open →</a></td>
+          </tr>
+          
+          <tr>
+            <td><strong style="color: var(--purple);">03</strong></td>
+            <td>
+              <div class="muted" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Liability Environment</div>
+              <div style="font-weight: 700;">The Nuclear-Verdict Tail Keeps Thickening — A $6M Judgment, a $3M Bankruptcy Trigger, and California vs. FMCSA</div>
+            </td>
+            <td>
+              <span class="rag rag-amber" style="margin-right:6px;">Submission: MED</span><span class="rag rag-red" style="margin-right:6px;">Pricing: HIGH</span><span class="rag rag-amber" style="margin-right:6px;">Distribution: MED</span>
+            </td>
+            <td class="num">5</td>
+            <td><a href="/cw-reports/industry-brief/2026-07-13/theme/03/" style="color: var(--purple); font-size: 12px;">Open →</a></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  
+  
+  <section class="report-section">
+    <h2 class="report-h">Litigation Watch</h2>
+    <div class="muted" style="font-size: 12px; margin-bottom: 12px;">Standing tracker of the market-shaping cases we are following. Persists day to day; updated when a milestone lands.</div>
+    
+    <div class="report-card" style="margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+        <div>
+          <div style="font-size: 18px; font-weight: 800; color: var(--text);">Montgomery v. Caribe Transport II</div>
+          <div class="muted" style="font-size: 11px; margin-top: 2px;">SCOTUS No. 24-1238; S.D. Ill. No. 19-cv-1300</div>
+        </div>
+        
+        <span class="rag-amber" style="white-space: nowrap; font-weight: 800; font-size: 12px; padding: 3px 10px; border-radius: 10px;">Remand pending — S.D. Ill.</span>
+      </div>
+      <div style="font-size: 14px; line-height: 1.6; margin-top: 10px;">The Supreme Court held that the F4A does not preempt state negligent-hiring claims against freight brokers. The case is now heading back to the federal district court in the Southern District of Illinois for trial.</div>
+      <div style="font-size: 13px; line-height: 1.6; margin-top: 8px;"><strong style="color: var(--purple);">Why it matters.</strong> For two decades brokers and 3PLs leaned on F4A/FAAAA preemption to get negligent-hiring claims dismissed at the pleadings. The Supreme Court&#39;s May 2026 ruling closes that door: carrier-selection decisions now sit squarely inside the statute&#39;s safety exception, and plaintiffs can take a broker&#39;s choice of carrier to a jury under state law. That reshapes the risk map for anyone who places freight. Brokers and 3PLs face a new, uninsured-in-many-cases liability exposure, which pulls demand toward contingent auto liability, broker E&amp;O, and vicarious-liability coverage, and raises the premium of documented carrier-vetting. It also strengthens the case for telematics-verified safety scoring at the point of carrier selection, which is adjacent to what DriveSmart already measures on the carrier side.</div>
+      
+      <div class="report-callout up" style="border-left-color: var(--turquoise); margin-top: 10px;"><strong>CW action.</strong> Treat this as a distribution and product talking point, not just legal news. Arm BD with a one-paragraph explainer for broker and 3PL prospects on how post-Montgomery liability changes their carrier-selection and insurance needs, and use it to open conversations with freight-adjacent partners. Flag to underwriting and product whether there is a contingent-liability or broker-facing coverage angle worth scoping while the market is reacting.</div>
+      
+      
+      <div style="font-size: 13px; line-height: 1.6; margin-top: 8px;"><strong style="color: var(--purple);">Next watch.</strong> District court scheduling on remand and the first substantive rulings on how the negligent-hiring standard is applied. Watch for downstream state-court copycat filings and any carrier appetite or rate-filing shifts on broker-facing coverages.</div>
+      
+      <h3 class="report-h" style="font-size: 13px; margin-top: 16px;">Timeline</h3>
+      <div class="report-table-wrap">
+        <table class="report-table">
+          <tbody>
+            
+            <tr>
+              <td style="width: 90px; white-space: nowrap; color: var(--purple); font-weight: 800;">2026-06-30</td>
+              <td>
+                <div style="font-weight: 700;">Joint remand filing to Seventh Circuit</div>
+                <div class="muted" style="line-height: 1.5;">Both sides jointly asked the Seventh Circuit to send the case back to the Southern District of Illinois, the mechanical step that returns it to the trial court after the Supreme Court ruling. &middot; <a href="https://www.freightwaves.com/news/montgomery-lawsuit-likely-headed-back-to-illinois-district-court" target="_blank" rel="noopener" style="color: var(--purple);">FreightWaves ↗</a></div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="width: 90px; white-space: nowrap; color: var(--purple); font-weight: 800;">2026-05</td>
+              <td>
+                <div style="font-weight: 700;">SCOTUS: F4A does not preempt negligent-hiring claims</div>
+                <div class="muted" style="line-height: 1.5;">The Supreme Court ruled that negligent-hiring claims against freight brokers fall within the F4A/FAAAA safety exception, reversing the Seventh Circuit and reviving Montgomery&#39;s claim against C.H. Robinson. &middot; <a href="https://www.scotusblog.com/2026/05/court-rules-freight-brokers-can-face-negligent-hiring-suits-under-state-law/" target="_blank" rel="noopener" style="color: var(--purple);">SCOTUSblog ↗</a></div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="width: 90px; white-space: nowrap; color: var(--purple); font-weight: 800;">2019</td>
+              <td>
+                <div style="font-weight: 700;">Suit filed; dismissed on preemption</div>
+                <div class="muted" style="line-height: 1.5;">Montgomery sued in federal district court alleging C.H. Robinson negligently hired the carrier. The district court held the claim was expressly preempted by the FAAAA and outside the safety exception; the Seventh Circuit affirmed. &middot; <a href="https://www.law.cornell.edu/supremecourt/text/24-1238" target="_blank" rel="noopener" style="color: var(--purple);">Legal Information Institute ↗</a></div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="width: 90px; white-space: nowrap; color: var(--purple); font-weight: 800;">2017</td>
+              <td>
+                <div style="font-weight: 700;">Underlying crash</div>
+                <div class="muted" style="line-height: 1.5;">Shawn Montgomery suffered severe, permanent injuries when his truck was struck by a Caribe Transport II driver hauling a load booked by broker C.H. Robinson. &middot; <a href="https://www.grsm.com/insight/montgomery-v-caribe-transport-ii-llc-a-turning-point-in-freight-broker-liability/" target="_blank" rel="noopener" style="color: var(--purple);">Gordon Rees Scully Mansukhani ↗</a></div>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+  </section>
+  
+
+
+
+
+
+
+
+  </main>
+</div>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1300);
+})();
+</script>
+
+</body>
+</html>
