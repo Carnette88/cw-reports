@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Industry Brief · 2026-07-13 · Cory Arnette · Cover Whale</title>
+  <link rel="stylesheet" href="/cw-reports/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233E1C53'/><text x='50%25' y='52%25' text-anchor='middle' dominant-baseline='middle' fill='%2353D6D2' font-family='-apple-system' font-weight='800' font-size='14'>CW</text></svg>">
+  <style>
+    /* cw-reports site shell — mirrors command-center base.html layout */
+
+    /* Force layout to grid with sidenav (command-center style.css defines this
+       but the existing class overrides depend on Flask state — we just ensure
+       it stays consistent here). */
+    .layout { display: grid; grid-template-columns: 248px 1fr; min-height: 100vh; }
+
+    .sidenav {
+      background: var(--bg-elev);
+      color: rgba(255,255,255,0.92);
+      padding: 22px 14px 26px;
+      position: sticky; top: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--line);
+    }
+    .sidenav .brand {
+      display: flex; gap: 12px; align-items: center;
+      padding: 0 6px 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 14px;
+    }
+    .sidenav .brand-logo {
+      width: 38px; height: 38px; border-radius: 9px;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 0 0 1px rgba(180, 124, 219, 0.25), 0 2px 12px rgba(62, 28, 83, 0.45);
+    }
+    .sidenav .brand-title { font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--text); }
+    .sidenav .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: var(--font-mono); }
+
+    .sidenav nav { display: flex; flex-direction: column; }
+    .nav-section-label {
+      font-size: 10.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600;
+      padding: 14px 10px 6px;
+    }
+    .nav-item {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 1px;
+      transition: all 0.12s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .nav-item:hover { background: var(--surface-hover); color: var(--text); }
+    .nav-item.active {
+      background: var(--purple-glow);
+      color: var(--purple);
+      border-color: rgba(180, 124, 219, 0.30);
+    }
+    .nav-icon { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 16px; height: 16px; }
+
+    main.content {
+      padding: 28px 38px 80px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Credentials gate */
+    #cw-gate {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #cw-gate .spin {
+      width: 48px; height: 48px;
+      border: 4px solid var(--purple);
+      border-top-color: transparent;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: cwspin 0.9s linear infinite;
+    }
+    #cw-gate h2 { font-size: 18px; color: var(--text); margin: 0 0 6px; font-weight: 600; }
+    #cw-gate p { font-size: 13px; color: var(--muted); margin: 0; font-family: var(--font-mono); }
+    @keyframes cwspin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 880px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidenav {
+        position: static; height: auto;
+        border-right: none; border-bottom: 1px solid var(--line);
+      }
+      main.content { padding: 22px 18px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cw-gate">
+  <div style="text-align:center;">
+    <div class="spin"></div>
+    <h2>Verifying CoverWhale Credentials</h2>
+    <p>Accessing Growth Reports</p>
+  </div>
+</div>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-7"/></symbol>
+  <symbol id="i-newspaper" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
+  <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M22 7l-9 9-5-5L1 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 22v-5"/><path d="M9 7V2"/><path d="M15 7V2"/><path d="M6 13V8h12v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/></symbol>
+</svg>
+
+<div class="layout">
+  <aside class="sidenav">
+    <div class="brand">
+      <a href="/cw-reports/morning/" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+        <img src="/cw-reports/cw-logo.png" alt="Cover Whale" class="brand-logo">
+        <div>
+          <div class="brand-title">Growth Strategy Hub</div>
+          <div class="brand-sub">Mon Jul 13 2026</div>
+        </div>
+      </a>
+    </div>
+    <nav>
+      <div class="nav-section-label">Data</div>
+      <a href="/cw-reports/morning/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-chart"/></svg></span> Production vs Budget
+      </a>
+      <a href="/cw-reports/industry-brief/" class="nav-item active">
+        <span class="nav-icon"><svg><use href="#i-newspaper"/></svg></span> Industry Brief
+      </a>
+      <a href="/cw-reports/agency-flags/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-flag"/></svg></span> Agency Flags
+      </a>
+      <a href="/cw-reports/api-partners/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-plug"/></svg></span> API Partners
+      </a>
+      <a href="/cw-reports/strategic-pulse/" class="nav-item ">
+        <span class="nav-icon"><svg><use href="#i-trending"/></svg></span> Strategic Pulse
+        <span style="margin-left:6px; font-size:9px; background:rgba(180,124,219,0.18); color:#B47CDB; padding:2px 6px; border-radius:8px; letter-spacing:0.4px; font-weight:700;">DEV</span>
+      </a>
+    </nav>
+  </aside>
+  <main class="content">
+    
+
+
+
+
+<header class="page-header">
+  <h1>Industry Brief</h1>
+  <div class="subtitle">
+    
+      2026-07-13 &middot; trucking + trucking-insurance daily digest
+      
+        &middot; <span class="muted">built 2026-07-13 08:35</span>
+      
+    
+  </div>
+</header>
+
+
+
+
+<div class="tabs">
+  <a href="/cw-reports/industry-brief/2026-07-13/"
+     class="tab ">Overview</a>
+  
+    <a href="/cw-reports/industry-brief/2026-07-13/theme/01/"
+       class="tab ">
+      Freight Cycle
+    </a>
+  
+    <a href="/cw-reports/industry-brief/2026-07-13/theme/02/"
+       class="tab ">
+      Regulatory Reset
+    </a>
+  
+    <a href="/cw-reports/industry-brief/2026-07-13/theme/03/"
+       class="tab active">
+      Liability Environment
+    </a>
+  
+</div>
+
+
+
+  <div style="margin: 4px 0 14px 0; font-size: 12px; color: var(--muted);">
+    Archive:
+    
+      <a href="/cw-reports/industry-brief/2026-07-13/"
+         style="color: var(--purple); text-decoration: none; margin-right: 10px; font-weight: 700;">
+        2026-07-13
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-10/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-10
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-09/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-09
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-08/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-08
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-07/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-07
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-06/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-06
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-02/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-02
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-07-01/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-07-01
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-30/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-30
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-29/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-29
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-26/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-26
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-25/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-25
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-24/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-24
+      </a>
+    
+      <a href="/cw-reports/industry-brief/2026-06-23/"
+         style="color: var(--muted); text-decoration: none; margin-right: 10px; ">
+        2026-06-23
+      </a>
+    
+  </div>
+
+
+
+
+
+  <section class="report-section">
+    <div style="margin-bottom: 12px;">
+      <div class="muted" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">
+        Theme 03 &middot; Liability Environment
+      </div>
+      <h2 style="font-size: 24px; font-weight: 800; margin: 4px 0 10px 0; color: var(--text);">
+        The Nuclear-Verdict Tail Keeps Thickening — A $6M Judgment, a $3M Bankruptcy Trigger, and California vs. FMCSA
+      </h2>
+      <div>
+        <span class="rag rag-amber" style="margin-right:6px;">Submission: MED</span><span class="rag rag-red" style="margin-right:6px;">Pricing: HIGH</span><span class="rag rag-amber" style="margin-right:6px;">Distribution: MED</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="report-section">
+    <h2 class="report-h">Why It Matters</h2>
+    <div class="report-card" style="font-size: 14px; line-height: 1.65;">
+      Three data points in a single week make the point that the litigation tail on commercial auto is not normalizing — it is compounding. R+L Carriers was ordered to pay $6M to a family after a fatal Illinois crash, a mid-size carrier group filed for bankruptcy citing a $3M unresolved legal claim as the trigger, and California&#39;s attorneys are squaring off against FMCSA over funding authority in a fight that will shape how state-level plaintiffs&#39; bars leverage federal safety data going forward. Sitting behind all of it is the industry backdrop: nuclear verdicts (&gt;$10M) rose 52% in 2024 and the median verdict is now around $51M, per ATA&#39;s own data cited in Land Line and MMA coverage. For a trucking underwriter this compresses the profit envelope on any book that leans on excess placement or hasn&#39;t repriced legal-tail assumptions since 2023 — and it hardens the case for continuous underwriting over annual snapshot pricing.
+    </div>
+  </section>
+
+  <section class="report-section">
+    <h2 class="report-h">CW Action</h2>
+    <div class="report-callout up" style="border-left-color: var(--turquoise);">
+      Ask claims and actuarial to pull our own tail-development view against the 52% verdict-frequency trend and confirm the reserves reflect it — this is exactly the kind of story that shows up in Howden&#39;s next carrier meeting. On the BD side, arm National Partners with the R+L headline and the $3M-bankruptcy fact as the top of the DriveSmart pitch: cheap insurance is not cheap if a single loss ends the fleet, and telematics-backed underwriting is how carriers stay solvent in this environment.
+    </div>
+  </section>
+
+  <section class="report-section">
+    <h2 class="report-h">Sources &amp; Further Reading</h2>
+    <div class="report-table-wrap">
+      <table class="report-table">
+        <thead>
+          <tr><th>Headline</th><th style="width:200px;">Source</th></tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><a href="https://www.truckingdive.com/news/rl-carriers-owes-6m-to-family-after-fatal-crash-in-illinois/824398/" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">R+L Carriers owes $6M to family after fatal crash in Illinois <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Trucking Dive</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.truckingdive.com/news/trucking-firms-file-for-bankruptcy-citing-3m-legal-claim-in-dispute/824719/" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">Trucking firms file for bankruptcy, citing $3M legal claim in dispute <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Trucking Dive</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.truckingdive.com/news/california-fmcsa-attorneys-prepare-for-showdown-over-funding-dispute/824468/" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">California, FMCSA attorneys prepare for showdown over funding dispute <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Trucking Dive</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.ttnews.com/articles/trucker-jailed-tungsten" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">Trucker jailed in Indiana in alleged $2.8M tungsten theft <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Transport Topics</td>
+          </tr>
+          
+          <tr>
+            <td><a href="https://www.truckinginfo.com/news/wabash-trailers-recalled-for-improperly-installed-underride-guards" target="_blank" rel="noopener" style="color: var(--text); text-decoration: none;">Wabash Trailers Recalled for Improperly Installed Underride Guards <span class="muted" style="font-size: 11px;">↗</span></a></td>
+            <td class="muted">Heavy Duty Trucking</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+
+
+
+  </main>
+</div>
+
+<script>
+(function(){
+  function reveal(){
+    var g=document.getElementById('cw-gate');
+    if(!g)return;
+    g.style.opacity='0';
+    g.style.transition='opacity 0.40s ease-out';
+    setTimeout(function(){g.parentNode&&g.parentNode.removeChild(g);},420);
+  }
+  setTimeout(reveal,1300);
+})();
+</script>
+
+</body>
+</html>
